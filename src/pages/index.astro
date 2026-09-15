@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import MarqueeLogos from '../components/MarqueeLogos.astro';
+import Manifesto from '../components/Manifesto.astro';
+import BentoServices from '../components/BentoServices.astro';
+import ShowcaseReels from '../components/ShowcaseReels.astro';
+import BackstageCulture from '../components/BackstageCulture.astro';
+import B2BContactForm from '../components/B2BContactForm.astro';
+import Footer from '../components/Footer.astro';
+import ShowreelModal from '../components/ShowreelModal.astro';
+---
+
+<Layout
+  title="SÓNICA PERÚ | Producción Integral de Eventos Corporativos, BTL & Experiencias de Marca"
+  description="Agencia boutique de diseño y producción integral en Lima, Perú. Convenciones, galas, lanzamientos de marca, BTL masivo y audiovisual 100% in-house."
+>
+  <!-- Floating Header / Navbar -->
+  <Navbar />
+
+  <!-- Main Narrative Flow (Scrollyselling) -->
+  <main class="relative">
+    <!-- Acto 1: El Impacto -->
+    <Hero />
+
+    <!-- Acto 2: Validación Inmediata / Social Proof -->
+    <MarqueeLogos />
+
+    <!-- Acto 3: El Manifiesto ("Nuestra Alma") -->
+    <Manifesto />
+
+    <!-- Acto 4: La Máquina 360° (Líneas de Servicio Oficiales) -->
+    <BentoServices />
+
+    <!-- Acto 5: Evidencia Viva (Videos y Reels) -->
+    <ShowcaseReels />
+
+    <!-- Acto 6: Los Que Volamos (Backstage & Seguridad Operativa) -->
+    <BackstageCulture />
+
+    <!-- Acto 7: El Clímax de Conversión (Formulario B2B Estratégico) -->
+    <B2BContactForm />
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+
+  <!-- Video Lightbox Player Modal -->
+  <ShowreelModal />
+</Layout>

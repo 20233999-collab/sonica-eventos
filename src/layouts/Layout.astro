@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "SÓNICA PERÚ | Experiencias de Marca, Eventos Corporativos & BTL",
+  description = "Agencia boutique de diseño y producción integral de eventos corporativos, galas, convenciones, BTL masivo y audiovisual en Lima, Perú. Producción 100% in-house."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth bg-canvas text-slate-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- OpenGraph / Social -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    
+    <!-- Google Fonts: Outfit, Plus Jakarta Sans & Geist Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-canvas text-slate-200 antialiased selection:bg-brand-cyan/30 selection:text-white relative">
+    <!-- Progressive Blur Top Bar -->
+    <div class="progressive-blur-top"></div>
+    
+    <!-- Ambient Light Bloom in Background -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <div class="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-brand-cyan/5 rounded-full blur-[140px] mix-blend-screen"></div>
+      <div class="absolute top-[40%] right-[-10%] w-[700px] h-[700px] bg-brand-blue/5 rounded-full blur-[160px] mix-blend-screen"></div>
+      <div class="absolute bottom-[-10%] left-[-5%] w-[800px] h-[800px] bg-brand-cyan/5 rounded-full blur-[180px] mix-blend-screen"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <slot />
+    </div>
+
+    <!-- Lenis + GSAP Global Motion Initialization Script (cinematic-gsap-lenis-motion-system skill) -->
+    <script>
+      import Lenis from 'lenis';
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power3.out", duration: 0.85 });
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMotion) {
+        const lenis = new Lenis({
+          lerp: 0.08,
+          smoothWheel: true,
+          wheelMultiplier: 0.95,
+        });
+
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
+
+        // Smooth anchor links handling
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener('click', (e) => {
+            const href = anchor.getAttribute('href');
+            if (href && href.length > 1) {
+              const target = document.querySelector(href);
+              if (target) {
+                e.preventDefault();
+                lenis.scrollTo(target as HTMLElement, { offset: -80, duration: 1.2 });
+              }
+            }
+          });
+        });
+      }
+
+      // Refresh on window load
+      window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+---
+// BentoServices.astro - Acto 4: La Máquina 360° (Bento Grid Asimétrico con css-border-gradient & beautiful-shadows)
+---
+
+<section id="servicios" class="relative py-28 px-4 sm:px-6 bg-[#090D16]">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header with Mono Counter -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="h-px w-8 bg-brand-cyan"></div>
+          <span class="font-mono text-xs text-brand-cyan tracking-widest uppercase font-semibold">
+            02 / CAPACIDAD INTEGRAL ALL-IN-ONE
+          </span>
+        </div>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          La Máquina 360° de <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-light">
+            Experiencias Vivas.
+          </span>
+        </h2>
+      </div>
+      <p class="font-body text-slate-400 text-sm sm:text-base max-w-md leading-relaxed">
+        Todo el ciclo resuelto con equipamiento propio y dirección creativa in-house. Elimina la fricción de coordinar cinco proveedores independientes.
+      </p>
+    </div>
+
+    <!-- Asymmetric Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      
+      <!-- Card 1: Eventos Corporativos & BTL (Featured Big Bento Card: spans 2 cols & 2 rows on lg) -->
+      <div class="gradient-border-card md:col-span-2 lg:col-span-2 p-8 flex flex-col justify-between overflow-hidden group shadow-beautiful-lg min-h-[420px]">
+        <!-- Background Ambient Glow & Subtle Video Overlay -->
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-cyan/15 rounded-full blur-3xl group-hover:bg-brand-cyan/25 transition-all duration-700 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/85 to-transparent z-0"></div>
+        
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-mono text-xs text-brand-cyan tracking-widest uppercase font-semibold px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20">
+              Línea Insignia
+            </span>
+            <span class="font-mono text-xs text-slate-500">01 / 06</span>
+          </div>
+          
+          <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white mb-3 group-hover:text-brand-light transition-colors">
+            Eventos Corporativos & Activaciones BTL
+          </h3>
+          <p class="font-body text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg mb-6">
+            Experiencias masivas que emocionan, conmueven y generan conversación inmediata. Desde congresos médicos internacionales y galas de gala corporativa hasta activaciones en estadios, centros comerciales y vía pública.
+          </p>
+        </div>
+
+        <div class="relative z-10 pt-6 border-t border-white/10">
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-300">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10">Convenciones Anuales</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10">Lanzamientos Médicos</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10">Maratones & Estadios</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10">Fiestas de Integración</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Branding & Escenografía Ferial -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-2 p-8 flex flex-col justify-between group shadow-beautiful-md">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 21v-7m0 0V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10m-16 0h16m0 0v7M9 7h6" />
+              </svg>
+            </span>
+            <span class="font-mono text-xs text-slate-500">02 / 06</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-brand-cyan transition-colors">
+            Branding & Escenografía Efímera
+          </h3>
+          <p class="font-body text-slate-400 text-sm leading-relaxed mb-4">
+            Arquitectura de stands premium, tótems táctiles interactivos, letras corpóreas gigantes iluminadas y señalética de alto impacto para ferias agroexportadoras, mineras e inmobiliarias.
+          </p>
+        </div>
+        <div class="text-xs font-mono text-brand-cyan/80 flex items-center gap-1">
+          <span>Stands SGS, Rendipel, Urbana Perú</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Card 3: Producción & Merchandising Premium -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-7 flex flex-col justify-between group shadow-beautiful-md">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                <line x1="12" y1="22.08" x2="12" y2="12" />
+              </svg>
+            </span>
+            <span class="font-mono text-xs text-slate-500">03 / 06</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-cyan transition-colors">
+            Merchandising de Élite & Trofeos
+          </h3>
+          <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Placas y galardones en acrílico/madera de lujo, kits corporativos VIP, sets de coctelería fina y ropa técnica deportiva. Cada objeto diseñado para perdurar.
+          </p>
+        </div>
+        <span class="font-mono text-[11px] text-slate-400 pt-4 border-t border-white/5">Natura, Avon, Pisco Colonial</span>
+      </div>
+
+      <!-- Card 4: Producción Audiovisual & Cine -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-7 flex flex-col justify-between group shadow-beautiful-md">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+            </span>
+            <span class="font-mono text-xs text-slate-500">04 / 06</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-cyan transition-colors">
+            Producción Audiovisual
+          </h3>
+          <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Cámaras de cine, drones, set de chroma key, spots publicitarios y edición express de reels en menos de 24 horas para amplificar el evento en redes.
+          </p>
+        </div>
+        <span class="font-mono text-[11px] text-slate-400 pt-4 border-t border-white/5">4K HDR • Cobertura Multicámara</span>
+      </div>
+
+      <!-- Card 5: Endomarketing & Cultura Interna -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-7 flex flex-col justify-between group shadow-beautiful-md">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            <span class="font-mono text-xs text-slate-500">05 / 06</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-cyan transition-colors">
+            Endomarketing & People
+          </h3>
+          <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Team building disruptivo, torneos deportivos interempresas (SNI), jornadas de voluntariado y celebraciones temáticas que elevan el orgullo de pertenencia.
+          </p>
+        </div>
+        <span class="font-mono text-[11px] text-slate-400 pt-4 border-t border-white/5">RIMAC, Breca, Mercado Libre</span>
+      </div>
+
+      <!-- Card 6: Inteligencia & Experiencia de Marca -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-7 flex flex-col justify-between group shadow-beautiful-md">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="16" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12.01" y2="8" />
+              </svg>
+            </span>
+            <span class="font-mono text-xs text-slate-500">06 / 06</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-cyan transition-colors">
+            Inteligencia & CX
+          </h3>
+          <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Focus groups, mystery shopping presencial/digital, auditorías de servicio y optimización del Customer Journey. Medimos antes y después del evento.
+          </p>
+        </div>
+        <span class="font-mono text-[11px] text-slate-400 pt-4 border-t border-white/5">Estudios Cualitativos & ROI</span>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,110 @@
+---
+// ShowreelModal.astro - Lightbox modal para reproducción interactiva de video en pantalla completa
+---
+
+<div
+  id="video-lightbox-modal"
+  class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-xl transition-all duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+>
+  <!-- Background click area to close -->
+  <div id="video-lightbox-backdrop" class="absolute inset-0"></div>
+
+  <!-- Modal Content Container -->
+  <div class="relative z-10 w-full max-w-5xl rounded-2xl overflow-hidden bg-surface border border-white/15 shadow-2xl flex flex-col">
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-canvas/80">
+      <div class="flex items-center gap-3">
+        <div class="w-2.5 h-2.5 rounded-full bg-brand-cyan animate-pulse"></div>
+        <h3 id="video-modal-title" class="font-display font-bold text-sm sm:text-base text-white tracking-wide truncate max-w-md sm:max-w-xl">
+          Showreel Oficial Sónica Perú
+        </h3>
+      </div>
+
+      <!-- Close Button -->
+      <button
+        type="button"
+        id="close-video-modal-btn"
+        class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-colors focus:outline-none"
+        aria-label="Cerrar reproductor"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Video Element -->
+    <div class="relative w-full aspect-video bg-black flex items-center justify-center">
+      <video
+        id="video-modal-player"
+        controls
+        playsinline
+        class="w-full h-full object-contain"
+      >
+        <source src="" type="video/mp4" />
+        Tu navegador no soporta reproducción de video HTML5.
+      </video>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initVideoModal() {
+    const modal = document.getElementById('video-lightbox-modal');
+    const backdrop = document.getElementById('video-lightbox-backdrop');
+    const closeBtn = document.getElementById('close-video-modal-btn');
+    const titleEl = document.getElementById('video-modal-title');
+    const player = document.getElementById('video-modal-player') as HTMLVideoElement | null;
+
+    if (!modal || !player) return;
+
+    function openModal(src: string, title: string) {
+      if (titleEl) titleEl.textContent = title;
+      player.src = src;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      player.play().catch(() => {});
+    }
+
+    function closeModal() {
+      player.pause();
+      player.currentTime = 0;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Bind triggers across the page
+    document.querySelectorAll('[data-video-src]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const src = btn.getAttribute('data-video-src') || '';
+        const title = btn.getAttribute('data-video-title') || 'Reproduciendo video';
+        if (src) openModal(src, title);
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    // ESC key closes modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVideoModal);
+  } else {
+    initVideoModal();
+  }
+</script>

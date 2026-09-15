@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.astro/
+.vercel/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.playwright-mcp/
+
+# Raw video and document source packages (>100MB)
+MangostA Peru/
+*.zip
+PRESENTACION SONICA PERU.pdf

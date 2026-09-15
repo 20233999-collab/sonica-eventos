@@ -1,0 +1,321 @@
+---
+// B2BContactForm.astro - Acto 7: El Clímax de Conversión (Formulario B2B Estratégico)
+---
+
+<section id="contacto" class="relative py-28 px-4 sm:px-6 bg-[#090D16] border-t border-white/5">
+  <!-- Center Glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand-cyan/10 rounded-full blur-[180px] pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-xs font-mono mb-4 uppercase tracking-widest font-semibold">
+        05 / CONVERSIÓN B2B
+      </div>
+      <h2 class="font-display font-black text-3xl sm:text-5xl text-white tracking-tight uppercase mb-4">
+        Hablemos de Tu <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-light to-white">
+          Próximo Gran Evento.
+        </span>
+      </h2>
+      <p class="font-body text-slate-300 text-sm sm:text-base leading-relaxed">
+        Agenda una sesión estratégica de 30 minutos con nuestro Director de Cuentas. Recibe un diagnóstico conceptual y propuesta de cotización a la medida.
+      </p>
+    </div>
+
+    <!-- Main Form Container (Beautiful lg Shadow & Gradient Border) -->
+    <div class="gradient-border-card p-6 sm:p-10 shadow-beautiful-lg bg-[#0E1626]/90 backdrop-blur-xl">
+      
+      <form id="b2b-proposal-form" class="space-y-6">
+        
+        <!-- Step 1: Area / Service Pills -->
+        <div>
+          <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-3 font-medium">
+            1. ¿Qué tipo de experiencia deseas crear?
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="interest-tabs">
+            <button
+              type="button"
+              data-interest="Eventos Corporativos & Convenciones"
+              class="interest-pill active px-3 py-2.5 rounded-xl text-xs font-medium border border-brand-cyan bg-brand-cyan/15 text-white text-center transition-all"
+            >
+              Eventos & Galas
+            </button>
+            <button
+              type="button"
+              data-interest="Activaciones BTL & Experiencias de Marca"
+              class="interest-pill px-3 py-2.5 rounded-xl text-xs font-medium border border-white/10 bg-surface text-slate-400 hover:text-white hover:border-white/20 text-center transition-all"
+            >
+              Activaciones BTL
+            </button>
+            <button
+              type="button"
+              data-interest="Endomarketing & Fiestas de Fin de Año"
+              class="interest-pill px-3 py-2.5 rounded-xl text-xs font-medium border border-white/10 bg-surface text-slate-400 hover:text-white hover:border-white/20 text-center transition-all"
+            >
+              Fiestas / Clima RRHH
+            </button>
+            <button
+              type="button"
+              data-interest="Producción Integral 360 & Audiovisual"
+              class="interest-pill px-3 py-2.5 rounded-xl text-xs font-medium border border-white/10 bg-surface text-slate-400 hover:text-white hover:border-white/20 text-center transition-all"
+            >
+              Producción 360°
+            </button>
+          </div>
+          <input type="hidden" name="interest" id="selected-interest" value="Eventos Corporativos & Convenciones" />
+        </div>
+
+        <!-- Step 2: Contact Inputs Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
+          <!-- Name -->
+          <div>
+            <label for="contact-name" class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2 font-medium">
+              Nombre y Apellidos *
+            </label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              required
+              placeholder="Ej. Valeria Mendoza"
+              class="w-full px-4 py-3 rounded-xl bg-canvas border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan transition-all"
+            />
+          </div>
+
+          <!-- Company -->
+          <div>
+            <label for="contact-company" class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2 font-medium">
+              Empresa / Razón Social *
+            </label>
+            <input
+              type="text"
+              id="contact-company"
+              name="company"
+              required
+              placeholder="Ej. Megalabs / Banco Falabella"
+              class="w-full px-4 py-3 rounded-xl bg-canvas border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan transition-all"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="contact-email" class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2 font-medium">
+              Correo Corporativo *
+            </label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              required
+              placeholder="nombre@empresa.com"
+              class="w-full px-4 py-3 rounded-xl bg-canvas border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan transition-all"
+            />
+          </div>
+
+          <!-- Phone / WhatsApp -->
+          <div>
+            <label for="contact-phone" class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2 font-medium">
+              Teléfono / WhatsApp de Contacto *
+            </label>
+            <input
+              type="tel"
+              id="contact-phone"
+              name="phone"
+              required
+              placeholder="+51 987 654 321"
+              class="w-full px-4 py-3 rounded-xl bg-canvas border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan transition-all"
+            />
+          </div>
+
+          <!-- Attendance Estimate -->
+          <div>
+            <label for="contact-capacity" class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2 font-medium">
+              Aforo / Asistentes Estimados
+            </label>
+            <select
+              id="contact-capacity"
+              name="capacity"
+              class="w-full px-4 py-3 rounded-xl bg-canvas border border-white/10 text-white text-sm focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan transition-all"
+            >
+              <option value="Menos de 100 personas">Menos de 100 personas (VIP / Comité)</option>
+              <option value="100 a 500 personas">100 a 500 personas (Conferencia / Fiesta)</option>
+              <option value="500 a 2000 personas">500 a 2,000 personas (Gala Anual / Convención)</option>
+              <option value="Más de 2000 personas">Más de 2,000 personas (BTL / Masivo)</option>
+            </select>
+          </div>
+
+          <!-- Date Estimate -->
+          <div>
+            <label for="contact-date" class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2 font-medium">
+              Fecha Tentativa del Evento
+            </label>
+            <input
+              type="text"
+              id="contact-date"
+              name="date"
+              placeholder="Ej. Noviembre 2026 / Q4"
+              class="w-full px-4 py-3 rounded-xl bg-canvas border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan transition-all"
+            />
+          </div>
+        </div>
+
+        <!-- Notes / Message -->
+        <div>
+          <label for="contact-notes" class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2 font-medium">
+            Detalles o Visión del Proyecto (Opcional)
+          </label>
+          <textarea
+            id="contact-notes"
+            name="notes"
+            rows="3"
+            placeholder="Cuéntanos sobre el concepto, locación deseada o requerimientos especiales..."
+            class="w-full px-4 py-3 rounded-xl bg-canvas border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan transition-all resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button (beam-glow-btn) -->
+        <div class="pt-2">
+          <button
+            type="submit"
+            id="submit-form-btn"
+            class="beam-glow-btn w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-light hover:to-brand-cyan text-white font-bold text-base shadow-glow-cyan flex items-center justify-center gap-3 transition-all cursor-pointer"
+          >
+            <span>Agendar Sesión Estratégica & Solicitar Propuesta</span>
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Direct WhatsApp Express Banner -->
+        <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-white">¿Fecha urgente o consulta directa?</p>
+              <p class="text-xs text-slate-400">Atención inmediata con la dirección de cuentas vía WhatsApp.</p>
+            </div>
+          </div>
+
+          <a
+            id="whatsapp-direct-link"
+            href="https://wa.me/51948435104?text=Hola%20S%C3%B3nica%20Per%C3%BA%2C%20quisiera%20coordinar%20una%20sesi%C3%B3n%20estrat%C3%A9gica%20para%20un%20evento%20corporativo."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 text-xs font-semibold transition-all hover:scale-105"
+          >
+            <span>Chatear por WhatsApp</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </form>
+
+      <!-- Confirmation Toast / Message (Hidden by default) -->
+      <div id="form-success-message" class="hidden text-center py-10">
+        <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto mb-4">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-2xl text-white mb-2">¡Sesión Solicitada con Éxito!</h3>
+        <p class="font-body text-slate-300 text-sm max-w-md mx-auto mb-6">
+          Un Director de Cuentas de Sónica Perú revisará los requerimientos de tu evento y se pondrá en contacto contigo dentro de las próximas 2 horas hábiles.
+        </p>
+        <button
+          type="button"
+          id="reset-form-btn"
+          class="px-5 py-2 rounded-full bg-surface border border-white/10 text-xs font-mono text-brand-cyan hover:border-brand-cyan transition-colors"
+        >
+          Enviar otra consulta
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Form Client Interaction Script -->
+<script>
+  function initContactForm() {
+    const pills = document.querySelectorAll('.interest-pill');
+    const selectedInput = document.getElementById('selected-interest') as HTMLInputElement | null;
+    const form = document.getElementById('b2b-proposal-form') as HTMLFormElement | null;
+    const successMsg = document.getElementById('form-success-message');
+    const resetBtn = document.getElementById('reset-form-btn');
+    const whatsappLink = document.getElementById('whatsapp-direct-link') as HTMLAnchorElement | null;
+
+    if (!pills || !form) return;
+
+    // Pill selection logic
+    pills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        pills.forEach((p) => {
+          p.classList.remove('border-brand-cyan', 'bg-brand-cyan/15', 'text-white');
+          p.classList.add('border-white/10', 'bg-surface', 'text-slate-400');
+        });
+        pill.classList.remove('border-white/10', 'bg-surface', 'text-slate-400');
+        pill.classList.add('border-brand-cyan', 'bg-brand-cyan/15', 'text-white');
+
+        const interestVal = pill.getAttribute('data-interest') || '';
+        if (selectedInput) selectedInput.value = interestVal;
+
+        // Update WhatsApp link dynamic prefilled message
+        if (whatsappLink) {
+          const encoded = encodeURIComponent(`Hola Sónica Perú, quisiera coordinar una sesión estratégica para: ${interestVal}`);
+          whatsappLink.href = `https://wa.me/51948435104?text=${encoded}`;
+        }
+      });
+    });
+
+    // Form submit simulation with feedback
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-form-btn');
+      if (submitBtn) {
+        submitBtn.innerHTML = `
+          <svg class="animate-spin w-5 h-5 text-white" viewBox="0 0 24 24" fill="none">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+          <span>Procesando solicitud...</span>
+        `;
+      }
+
+      setTimeout(() => {
+        form.classList.add('hidden');
+        if (successMsg) successMsg.classList.remove('hidden');
+      }, 900);
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        form.reset();
+        form.classList.remove('hidden');
+        if (successMsg) successMsg.classList.add('hidden');
+        const submitBtn = document.getElementById('submit-form-btn');
+        if (submitBtn) {
+          submitBtn.innerHTML = `
+            <span>Agendar Sesión Estratégica & Solicitar Propuesta</span>
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          `;
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForm);
+  } else {
+    initContactForm();
+  }
+</script>

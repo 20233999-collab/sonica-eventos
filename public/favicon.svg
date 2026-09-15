@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#0077B6"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#090D16"/>
+  <rect x="2" y="2" width="96" height="96" rx="22" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <!-- Stylized Sonica "S" Sonic Wave Icon -->
+  <path d="M70 28C65 24 56 22 46 25C34 29 28 38 30 48C32 58 42 61 58 64C72 67 76 73 74 81C71 90 60 94 48 93C37 92 28 86 24 81" stroke="url(#cyanGrad)" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="72" cy="28" r="5" fill="#00E5FF"/>
+</svg>

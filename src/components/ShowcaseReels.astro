@@ -1,0 +1,301 @@
+---
+// ShowcaseReels.astro - Acto 5: Evidencia Viva (Showcase Multimedia Dual con videos reales)
+---
+
+<section id="casos" class="relative py-28 px-4 sm:px-6 bg-[#090D16] border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="h-px w-8 bg-brand-cyan"></div>
+          <span class="font-mono text-xs text-brand-cyan tracking-widest uppercase font-semibold">
+            03 / PRODUCCIÓN EN VIVO
+          </span>
+        </div>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          Evidencia Real. <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-light">
+            No Maquetas.
+          </span>
+        </h2>
+      </div>
+
+      <!-- Format Switcher Tabs (beam-glow-states skill) -->
+      <div class="flex items-center p-1.5 rounded-full bg-surface border border-white/10 shadow-beautiful-sm w-fit">
+        <button
+          type="button"
+          id="tab-reels-btn"
+          class="format-tab-btn active px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-brand-cyan text-white shadow-glow-cyan"
+        >
+          Reels BTL (9:16)
+        </button>
+        <button
+          type="button"
+          id="tab-wide-btn"
+          class="format-tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 text-slate-400 hover:text-white"
+        >
+          Grandes Galas (16:9)
+        </button>
+      </div>
+    </div>
+
+    <!-- VIEW 1: REELS FORMAT (9:16) -->
+    <div id="view-reels" class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto transition-all duration-500">
+      
+      <!-- Reel 1: Ladysoft & Cotidian -->
+      <div class="gradient-border-card p-6 flex flex-col items-center group shadow-beautiful-lg">
+        <!-- Phone Mockup Container -->
+        <div class="relative w-full max-w-[300px] aspect-[9/16] rounded-[2.5rem] p-3 bg-[#0B101D] border-4 border-slate-700/60 shadow-2xl overflow-hidden group/phone">
+          <!-- Dynamic Island / Speaker Notch -->
+          <div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-4 bg-black/80 rounded-full z-20 flex items-center justify-center pointer-events-none">
+            <div class="w-2 h-2 rounded-full bg-slate-800 mr-2"></div>
+            <div class="w-8 h-1 bg-slate-800 rounded-full"></div>
+          </div>
+
+          <!-- Video Element -->
+          <div class="relative w-full h-full rounded-[2rem] overflow-hidden bg-black">
+            <video
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              poster="/posters/ladysoft.webp"
+              class="reel-video w-full h-full object-cover transition-transform duration-500 group-hover/phone:scale-105"
+            >
+              <source src="/videos/ladysoft-teaser.mp4" type="video/mp4" />
+            </video>
+
+            <!-- Floating Overlay Badge -->
+            <div class="absolute top-8 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-brand-cyan border border-brand-cyan/30">
+                Activación BTL
+              </span>
+            </div>
+
+            <!-- Play Full Screen Button Overlay -->
+            <button
+              type="button"
+              class="open-video-modal-trigger absolute inset-0 m-auto w-14 h-14 rounded-full bg-brand-cyan/90 hover:bg-brand-cyan text-white flex items-center justify-center shadow-glow-cyan transition-all transform scale-90 opacity-0 group-hover/phone:opacity-100 group-hover/phone:scale-100 z-20"
+              data-video-src="/videos/ladysoft-web.mp4"
+              data-video-title="Activación Ferial BTL | Ladysoft & Cotidian"
+              aria-label="Ver reel completo"
+            >
+              <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case Metadata -->
+        <div class="w-full mt-6 text-center sm:text-left">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
+            <span>Softys Perú</span>
+            <span>00:45 min</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white group-hover:text-brand-cyan transition-colors">
+            Activación Ferial Ladysoft & Cotidian
+          </h3>
+          <p class="font-body text-xs text-slate-400 mt-1 leading-relaxed">
+            Stand ferial de alta interacción, tótems táctiles, anfitrionas corporativas y dinámicas de gamificación en vivo.
+          </p>
+        </div>
+      </div>
+
+      <!-- Reel 2: Urbana Park -->
+      <div class="gradient-border-card p-6 flex flex-col items-center group shadow-beautiful-lg">
+        <!-- Phone Mockup Container -->
+        <div class="relative w-full max-w-[300px] aspect-[9/16] rounded-[2.5rem] p-3 bg-[#0B101D] border-4 border-slate-700/60 shadow-2xl overflow-hidden group/phone">
+          <!-- Dynamic Island -->
+          <div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-4 bg-black/80 rounded-full z-20 flex items-center justify-center pointer-events-none">
+            <div class="w-2 h-2 rounded-full bg-slate-800 mr-2"></div>
+            <div class="w-8 h-1 bg-slate-800 rounded-full"></div>
+          </div>
+
+          <!-- Video Element -->
+          <div class="relative w-full h-full rounded-[2rem] overflow-hidden bg-black">
+            <video
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              poster="/posters/urbana.webp"
+              class="reel-video w-full h-full object-cover transition-transform duration-500 group-hover/phone:scale-105"
+            >
+              <source src="/videos/urbana-teaser.mp4" type="video/mp4" />
+            </video>
+
+            <!-- Floating Overlay Badge -->
+            <div class="absolute top-8 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-brand-cyan border border-brand-cyan/30">
+                Velada VIP
+              </span>
+            </div>
+
+            <!-- Play Full Screen Button Overlay -->
+            <button
+              type="button"
+              class="open-video-modal-trigger absolute inset-0 m-auto w-14 h-14 rounded-full bg-brand-cyan/90 hover:bg-brand-cyan text-white flex items-center justify-center shadow-glow-cyan transition-all transform scale-90 opacity-0 group-hover/phone:opacity-100 group-hover/phone:scale-100 z-20"
+              data-video-src="/videos/urbana-web.mp4"
+              data-video-title="Lanzamiento Inmobiliario Nocturno | Urbana Park"
+              aria-label="Ver reel completo"
+            >
+              <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case Metadata -->
+        <div class="w-full mt-6 text-center sm:text-left">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
+            <span>Urbana Perú</span>
+            <span>00:41 min</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white group-hover:text-brand-cyan transition-colors">
+            Noche de Lanzamiento Urbana Park
+          </h3>
+          <p class="font-body text-xs text-slate-400 mt-1 leading-relaxed">
+            Iluminación arquitectónica perimetral, letras gigantes corpóreas retroiluminadas y cóctel de networking para clientes VIP.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VIEW 2: WIDESCREEN 16:9 FORMAT (Initially Hidden) -->
+    <div id="view-wide" class="hidden grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-500">
+      
+      <!-- Case 1: Megalabs DAHEA -->
+      <div class="gradient-border-card p-6 flex flex-col group shadow-beautiful-lg">
+        <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black group/wide">
+          <video
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster="/posters/dahea.webp"
+            class="reel-video w-full h-full object-cover transition-transform duration-500 group-hover/wide:scale-105"
+          >
+            <source src="/videos/dahea-teaser.mp4" type="video/mp4" />
+          </video>
+          
+          <button
+            type="button"
+            class="open-video-modal-trigger absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-cyan/90 hover:bg-brand-cyan text-white flex items-center justify-center shadow-glow-cyan transition-all transform scale-90 opacity-0 group-hover/wide:opacity-100 group-hover/wide:scale-100 z-20"
+            data-video-src="/videos/megalabs-dahea-web.mp4"
+            data-video-title="Lanzamiento Médico Corporativo | Megalabs DAHEA 2026"
+            aria-label="Ver video completo"
+          >
+            <svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+
+        <div class="mt-5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
+            <span>Laboratorios Megalabs</span>
+            <span>01:34 min • 1080p</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white group-hover:text-brand-cyan transition-colors">
+            Lanzamiento Farmacéutico DAHEA 2026
+          </h3>
+          <p class="font-body text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+            Montaje de escenario curvo de gran formato, pantallas LED de alta definición, conferencia magistral para médicos especialistas y cena ejecutiva.
+          </p>
+        </div>
+      </div>
+
+      <!-- Case 2: Megalabs Fiesta Anual -->
+      <div class="gradient-border-card p-6 flex flex-col group shadow-beautiful-lg">
+        <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black group/wide">
+          <video
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster="/posters/fiesta.webp"
+            class="reel-video w-full h-full object-cover transition-transform duration-500 group-hover/wide:scale-105"
+          >
+            <source src="/videos/fiesta-teaser.mp4" type="video/mp4" />
+          </video>
+
+          <button
+            type="button"
+            class="open-video-modal-trigger absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-cyan/90 hover:bg-brand-cyan text-white flex items-center justify-center shadow-glow-cyan transition-all transform scale-90 opacity-0 group-hover/wide:opacity-100 group-hover/wide:scale-100 z-20"
+            data-video-src="/videos/megalabs-fiesta-web.mp4"
+            data-video-title="Fiesta Anual de Integración | Megalabs"
+            aria-label="Ver video completo"
+          >
+            <svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+
+        <div class="mt-5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
+            <span>Megalabs Perú</span>
+            <span>02:15 min • 1080p</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white group-hover:text-brand-cyan transition-colors">
+            Fiesta Corporativa de Integración
+          </h3>
+          <p class="font-body text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+            Producción integral masiva para cientos de colaboradores: tarima de concierto, sistema de sonido line-array, iluminación robótica inteligente y show en vivo.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Client Tab Switcher & Video Hover Play Script -->
+<script>
+  function initShowcaseTabs() {
+    const tabReelsBtn = document.getElementById('tab-reels-btn');
+    const tabWideBtn = document.getElementById('tab-wide-btn');
+    const viewReels = document.getElementById('view-reels');
+    const viewWide = document.getElementById('view-wide');
+
+    if (!tabReelsBtn || !tabWideBtn || !viewReels || !viewWide) return;
+
+    tabReelsBtn.addEventListener('click', () => {
+      tabReelsBtn.classList.add('bg-brand-cyan', 'text-white', 'shadow-glow-cyan');
+      tabReelsBtn.classList.remove('text-slate-400');
+      tabWideBtn.classList.remove('bg-brand-cyan', 'text-white', 'shadow-glow-cyan');
+      tabWideBtn.classList.add('text-slate-400');
+
+      viewReels.classList.remove('hidden');
+      viewWide.classList.add('hidden');
+    });
+
+    tabWideBtn.addEventListener('click', () => {
+      tabWideBtn.classList.add('bg-brand-cyan', 'text-white', 'shadow-glow-cyan');
+      tabWideBtn.classList.remove('text-slate-400');
+      tabReelsBtn.classList.remove('bg-brand-cyan', 'text-white', 'shadow-glow-cyan');
+      tabReelsBtn.classList.add('text-slate-400');
+
+      viewWide.classList.remove('hidden');
+      viewReels.classList.add('hidden');
+    });
+
+    // Hover to play teaser video logic
+    const videoContainers = document.querySelectorAll('.group\\/phone, .group\\/wide');
+    videoContainers.forEach((container) => {
+      const video = container.querySelector('video') as HTMLVideoElement | null;
+      if (!video) return;
+
+      container.addEventListener('mouseenter', () => {
+        video.play().catch(() => {});
+      });
+
+      container.addEventListener('mouseleave', () => {
+        video.pause();
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initShowcaseTabs);
+  } else {
+    initShowcaseTabs();
+  }
+</script>

@@ -1,0 +1,103 @@
+---
+// Hero.astro - Acto 1: El Impacto
+---
+
+<section id="experiencias" class="relative min-h-[95vh] lg:min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 overflow-hidden">
+  <!-- Cinematic Background Video Loop -->
+  <div class="absolute inset-0 z-0">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/posters/fiesta.webp"
+      class="w-full h-full object-cover opacity-35 scale-105 filter brightness-[0.75] contrast-[1.15]"
+    >
+      <source src="/videos/hero-loop.mp4" type="video/mp4" />
+    </video>
+    <!-- Multi-layered dark vignette to preserve contrast and prevent harsh edges -->
+    <div class="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/70 to-canvas/80 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-radial-vignette opacity-80 pointer-events-none"></div>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
+    <!-- Live Status Pill -->
+    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface/80 border border-white/10 backdrop-blur-md shadow-beautiful-sm mb-8 animate-fade-in">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
+      </span>
+      <span class="font-mono text-xs text-slate-300 tracking-wider uppercase font-medium">
+        Agencia Boutique & Productora Integral <span class="text-brand-cyan">/</span> Lima, Perú
+      </span>
+    </div>
+
+    <!-- Main Headline with Display Grotesk Typography -->
+    <h1 class="font-display font-black tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] text-white leading-[1.05] max-w-4xl text-balance mb-6 uppercase">
+      DISEÑAMOS, PRODUCIMOS <br class="hidden sm:inline" />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-light to-white">
+        Y SORPRENDEMOS.
+      </span>
+    </h1>
+
+    <!-- Value Proposition Copywriting -->
+    <p class="font-body text-slate-300 text-base sm:text-xl max-w-2xl text-balance leading-relaxed mb-10 font-normal">
+      Transformamos conferencias masivas, galas y activaciones BTL en acontecimientos memorables.
+      <strong class="text-white font-medium"> Cero intermediarios:</strong> estrategia, escenografía y cobertura audiovisual 100% in-house.
+    </p>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-16">
+      <a
+        href="#contacto"
+        class="beam-glow-btn w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-light hover:to-brand-cyan text-white text-base font-semibold px-8 py-4 rounded-full shadow-glow-cyan transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+      >
+        <span>Solicitar Propuesta B2B</span>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+
+      <button
+        type="button"
+        id="open-showreel-btn"
+        data-video-src="/videos/megalabs-fiesta-web.mp4"
+        data-video-title="Sónica Perú | Showreel de Producción Integral"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-surface/80 hover:bg-surface-elevated text-slate-200 hover:text-white border border-white/15 px-7 py-4 rounded-full backdrop-blur-md transition-all group"
+      >
+        <div class="w-6 h-6 rounded-full bg-brand-cyan/20 flex items-center justify-center group-hover:bg-brand-cyan text-brand-cyan group-hover:text-white transition-colors">
+          <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+        <span class="text-sm font-semibold tracking-wide">Ver Showreel</span>
+        <span class="font-mono text-xs text-slate-400">01:34 min</span>
+      </button>
+    </div>
+
+    <!-- Trust Numbers & Proof Metrics (Beautiful md shadow) -->
+    <div class="grid grid-cols-3 gap-3 sm:gap-8 w-full max-w-3xl pt-8 border-t border-white/10">
+      <div class="flex flex-col items-center">
+        <span class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight text-shadow">
+          +10
+        </span>
+        <span class="font-body text-xs sm:text-sm text-slate-400 mt-1 font-medium">Años de Trayectoria</span>
+      </div>
+      <div class="flex flex-col items-center border-x border-white/10 px-2">
+        <span class="font-display font-bold text-2xl sm:text-4xl text-brand-cyan tracking-tight text-shadow">
+          +20
+        </span>
+        <span class="font-body text-xs sm:text-sm text-slate-400 mt-1 font-medium">Marcas Corporativas</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <span class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight text-shadow">
+          100%
+        </span>
+        <span class="font-body text-xs sm:text-sm text-slate-400 mt-1 font-medium">Producción In-House</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Smooth Gradient Fade into Marquee -->
+  <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-canvas to-transparent pointer-events-none"></div>
+</section>

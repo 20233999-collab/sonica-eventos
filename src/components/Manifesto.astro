@@ -1,0 +1,111 @@
+---
+// Manifesto.astro - Acto 3: El Manifiesto (scroll-scrubbed-word-reveal skill)
+---
+
+<section class="relative py-32 px-4 sm:px-6 bg-[#090D16] overflow-hidden">
+  <!-- Subtle Background Light Beam -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-brand-cyan/10 rounded-full blur-[160px] pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto relative z-10">
+    <!-- Section Label -->
+    <div class="flex items-center gap-3 mb-8">
+      <div class="h-px w-8 bg-brand-cyan"></div>
+      <span class="font-mono text-xs text-brand-cyan tracking-widest uppercase font-semibold">
+        01 / NUESTRA ALMA
+      </span>
+    </div>
+
+    <!-- Editorial Scrollytelling Paragraph -->
+    <div class="manifesto-container py-6">
+      <p
+        id="manifesto-text"
+        class="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-slate-200 tracking-tight leading-[1.2] text-balance"
+      >
+        Nacimos para romper inercias. Donde las ideas no se presentan en un PDF aburrido: se viven, vibran y conectan en el mundo real. No buscamos solo llamar la atención por cinco minutos. Diseñamos puestas en escena que se quedan grabadas en la memoria de tu gente para siempre.
+      </p>
+    </div>
+
+    <!-- Footnote / Attitude -->
+    <div class="mt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-8 border-t border-white/10">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-brand-cyan shadow-beautiful-sm">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-display font-bold text-white text-base block">SÓNICA PERÚ</span>
+          <span class="font-body text-xs text-slate-400">Los que volamos: Cazadores de momentos y contadores de historias.</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <span class="inline-block w-2 h-2 rounded-full bg-brand-cyan"></span>
+        <span>EXPERIENCIAS VIVAS • SIN INTERMEDIARIOS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scroll-Scrubbed Word Reveal Client Script (scroll-scrubbed-word-reveal skill) -->
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initWordReveal() {
+    const textEl = document.getElementById('manifesto-text');
+    if (!textEl) return;
+
+    // Split text into words using spans while preserving original text accessibility
+    const rawText = textEl.textContent?.trim() || '';
+    const words = rawText.split(/\s+/);
+    
+    textEl.innerHTML = words
+      .map(
+        (word) =>
+          `<span class="word-token" style="--word-progress: 0;">${word}</span>`
+      )
+      .join(' ');
+
+    const wordTokens = textEl.querySelectorAll('.word-token');
+    const wordCount = wordTokens.length;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      wordTokens.forEach((token) => {
+        (token as HTMLElement).style.setProperty('--word-progress', '1');
+      });
+      return;
+    }
+
+    // GSAP ScrollTrigger scrub timeline
+    ScrollTrigger.create({
+      trigger: textEl,
+      start: 'top 80%',
+      end: 'bottom 45%',
+      scrub: 0.8,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        wordTokens.forEach((token, index) => {
+          // Calculate individual word progress
+          const localProgress = Math.min(1, Math.max(0, (progress * wordCount - index) * 1.5));
+          (token as HTMLElement).style.setProperty('--word-progress', localProgress.toString());
+          if (localProgress >= 0.95) {
+            token.classList.add('text-white', 'drop-shadow-[0_0_12px_rgba(0,178,254,0.3)]');
+          } else {
+            token.classList.remove('text-white', 'drop-shadow-[0_0_12px_rgba(0,178,254,0.3)]');
+          }
+        });
+      },
+    });
+  }
+
+  // Run on mount
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWordReveal);
+  } else {
+    initWordReveal();
+  }
+</script>
