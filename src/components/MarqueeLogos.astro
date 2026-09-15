@@ -1,26 +1,26 @@
 ---
-// MarqueeLogos.astro - Acto 2: Validación Instantánea (marquee-loop skill)
+// MarqueeLogos.astro - Acto 2: Validación Instantánea con logos corporativos reales (marquee-loop skill)
 
 const clients = [
-  { name: "BBVA", category: "Banca & Finanzas" },
-  { name: "MEGALABS", category: "Farmacéutica Internacional" },
-  { name: "RIMAC SEGUROS", category: "Seguros & Salud" },
-  { name: "GRUPO BRECA", category: "Conglomerado Corporativo" },
-  { name: "NATURA & CO", category: "Belleza & Cosmética" },
-  { name: "URBANA PERÚ", category: "Desarrollo Inmobiliario" },
-  { name: "PETROPERÚ", category: "Energía & Petróleo" },
-  { name: "CONMEBOL", category: "Deportes & Eventos VIP" },
-  { name: "SGS", category: "Certificación & Minería" },
-  { name: "MERCADO PAGO", category: "Fintech & E-commerce" },
-  { name: "ESSALUD", category: "Sector Salud" },
-  { name: "PROMPERÚ", category: "Marca País" },
-  { name: "CLÍNICA INTERNACIONAL", category: "Red Hospitalaria" },
-  { name: "LÍNEA 1 METRO", category: "Infraestructura & Transporte" },
+  { name: "BBVA", logo: "/clientes/clean/bbva.png", alt: "BBVA" },
+  { name: "Megalabs", logo: "/clientes/clean/megalabs.png", alt: "Megalabs" },
+  { name: "RIMAC Seguros", logo: "/clientes/clean/rimac.png", alt: "RIMAC Seguros" },
+  { name: "Grupo Breca", logo: "/clientes/clean/breca.png", alt: "Grupo BRECA" },
+  { name: "Natura & Co", logo: "/clientes/clean/natura.png", alt: "Natura & Co" },
+  { name: "CONMEBOL", logo: "/clientes/clean/conmebol.png", alt: "CONMEBOL" },
+  { name: "Petroperú", logo: "/clientes/clean/petroperu.png", alt: "Petroperú" },
+  { name: "SGS", logo: "/clientes/clean/sgs.png", alt: "SGS" },
+  { name: "Mercado Pago", logo: "/clientes/clean/mercadopago.png", alt: "Mercado Pago" },
+  { name: "EsSalud", logo: "/clientes/clean/essalud.png", alt: "EsSalud" },
+  { name: "PromPerú", logo: "/clientes/clean/promperu.png", alt: "PromPerú" },
+  { name: "Clínica Internacional", logo: "/clientes/clean/clinica-internacional.png", alt: "Clínica Internacional" },
+  { name: "Urbana Perú", logo: "/clientes/clean/urbana.png", alt: "Urbana Perú" },
+  { name: "Línea 1 Metro", logo: "/clientes/clean/linea1.png", alt: "Línea 1 Metro de Lima" },
 ];
 ---
 
-<section class="relative py-12 bg-[#090D16] border-y border-white/5 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 mb-6 text-center">
+<section class="relative py-14 bg-[#090D16] border-b border-white/5 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 mb-8 text-center">
     <p class="font-mono text-xs uppercase tracking-widest text-slate-400 font-medium">
       Marcas líderes que confían en la producción de Sónica Perú
     </p>
@@ -29,40 +29,36 @@ const clients = [
   <!-- Marquee Container with Left & Right Alpha Masks (css-alpha-masking / marquee-loop skill) -->
   <div class="relative w-full overflow-hidden flex items-center">
     <!-- Left Fade Gradient -->
-    <div class="absolute left-0 top-0 bottom-0 w-24 sm:w-40 z-10 bg-gradient-to-r from-canvas via-canvas/90 to-transparent pointer-events-none"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-24 sm:w-48 z-10 bg-gradient-to-r from-canvas via-canvas/90 to-transparent pointer-events-none"></div>
     
     <!-- Right Fade Gradient -->
-    <div class="absolute right-0 top-0 bottom-0 w-24 sm:w-40 z-10 bg-gradient-to-l from-canvas via-canvas/90 to-transparent pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-24 sm:w-48 z-10 bg-gradient-to-l from-canvas via-canvas/90 to-transparent pointer-events-none"></div>
 
     <!-- Scrolling Track (Double list for seamless 50% loop) -->
-    <div class="animate-marquee flex items-center gap-6 sm:gap-10 py-3">
+    <div class="animate-marquee flex items-center gap-10 sm:gap-14 py-3">
       {/* Set 1 */}
       {clients.map((client) => (
-        <div class="flex items-center gap-3 px-6 py-3 rounded-xl bg-surface/40 border border-white/5 backdrop-blur-sm transition-all duration-300 hover:border-brand-cyan/40 hover:bg-surface/80 group shrink-0 cursor-default">
-          <div class="w-2 h-2 rounded-full bg-brand-cyan/40 group-hover:bg-brand-cyan transition-colors"></div>
-          <div class="flex flex-col">
-            <span class="font-display font-bold text-sm sm:text-base tracking-wider text-slate-300 group-hover:text-white transition-colors">
-              {client.name}
-            </span>
-            <span class="font-mono text-[9px] text-slate-400 uppercase tracking-widest group-hover:text-brand-cyan/80 transition-colors">
-              {client.category}
-            </span>
-          </div>
+        <div class="flex items-center justify-center px-4 sm:px-6 py-2 shrink-0 group cursor-default">
+          <img
+            src={client.logo}
+            alt={client.alt}
+            title={client.name}
+            class="h-8 sm:h-9 w-auto max-w-[130px] sm:max-w-[155px] object-contain opacity-55 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-105 select-none pointer-events-none"
+            loading="lazy"
+          />
         </div>
       ))}
 
-      {/* Set 2 (Identical Duplicate for Infinite Loop) */}
+      {/* Set 2 (Identical Duplicate for Seamless Infinite Loop) */}
       {clients.map((client) => (
-        <div class="flex items-center gap-3 px-6 py-3 rounded-xl bg-surface/40 border border-white/5 backdrop-blur-sm transition-all duration-300 hover:border-brand-cyan/40 hover:bg-surface/80 group shrink-0 cursor-default" aria-hidden="true">
-          <div class="w-2 h-2 rounded-full bg-brand-cyan/40 group-hover:bg-brand-cyan transition-colors"></div>
-          <div class="flex flex-col">
-            <span class="font-display font-bold text-sm sm:text-base tracking-wider text-slate-300 group-hover:text-white transition-colors">
-              {client.name}
-            </span>
-            <span class="font-mono text-[9px] text-slate-400 uppercase tracking-widest group-hover:text-brand-cyan/80 transition-colors">
-              {client.category}
-            </span>
-          </div>
+        <div class="flex items-center justify-center px-4 sm:px-6 py-2 shrink-0 group cursor-default" aria-hidden="true">
+          <img
+            src={client.logo}
+            alt={client.alt}
+            title={client.name}
+            class="h-8 sm:h-9 w-auto max-w-[130px] sm:max-w-[155px] object-contain opacity-55 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-105 select-none pointer-events-none"
+            loading="lazy"
+          />
         </div>
       ))}
     </div>

@@ -3,8 +3,8 @@
 ---
 
 <section id="experiencias" class="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-14 sm:pt-18 pb-12 px-4 sm:px-6 overflow-hidden">
-  <!-- Cinematic Background Video Loop (Noticeably clearer and vivid) -->
-  <div class="absolute inset-0 z-0">
+  <!-- Cinematic Background Video Loop (with feathered top & bottom edges to eliminate abrupt section seams) -->
+  <div class="absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_80%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_80%,transparent_100%)]">
     <video
       autoplay
       muted
@@ -20,6 +20,10 @@
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(9,13,22,0.15)_0%,rgba(9,13,22,0.7)_100%)] pointer-events-none"></div>
   </div>
 
+  <!-- Smooth top and bottom feather gradients seamlessly dissolving video edges into canvas -->
+  <div class="absolute top-0 inset-x-0 h-28 sm:h-40 bg-gradient-to-b from-canvas via-canvas/75 to-transparent pointer-events-none z-10"></div>
+  <div class="absolute bottom-0 inset-x-0 h-32 sm:h-48 bg-gradient-to-t from-canvas via-canvas/85 to-transparent pointer-events-none z-10"></div>
+
   <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
     <!-- Live Status Pill -->
     <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface/80 border border-white/10 backdrop-blur-md shadow-beautiful-sm mb-5 animate-fade-in">
@@ -28,7 +32,7 @@
         <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
       </span>
       <span class="font-mono text-xs text-slate-300 tracking-wider uppercase font-medium">
-        Agencia Boutique & Productora Integral <span class="text-brand-cyan">/</span> Lima, Perú
+        Productora y servicios B.T.L. <span class="text-brand-cyan">/</span> Lima, Perú
       </span>
     </div>
 
@@ -113,8 +117,6 @@
     </div>
   </div>
 
-  <!-- Bottom Smooth Gradient Fade into Marquee -->
-  <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-canvas to-transparent pointer-events-none"></div>
 </section>
 
 <script>
