@@ -1,0 +1,7 @@
+# Ignore heavy local archives and raw files
+MangostA Peru/
+*.zip
+PRESENTACION SONICA PERU.pdf
+.playwright-mcp/
+node_modules/
+dist/
