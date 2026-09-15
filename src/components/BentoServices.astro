@@ -1,11 +1,11 @@
 ---
-// BentoServices.astro - Acto 4: La Máquina 360° con Netflix Spotlight Banner + Grid de Servicios
+// BentoServices.astro - Acto 4: La Máquina 360° con Netflix Spotlight Banner + Grid Bento Compacto e Interactivo
 ---
 
-<section id="servicios" class="relative py-28 px-4 sm:px-6 bg-[#090D16]">
+<section id="servicios" class="relative py-20 sm:py-24 px-4 sm:px-6 bg-[#090D16]">
   <div class="max-w-6xl mx-auto">
     <!-- Header with Mono Counter -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
       <div>
         <div class="flex items-center gap-3 mb-3">
           <div class="h-px w-8 bg-brand-cyan"></div>
@@ -21,22 +21,22 @@
         </h2>
       </div>
       <p class="font-body text-slate-400 text-sm sm:text-base max-w-md leading-relaxed">
-        Todo el ciclo resuelto con equipamiento propio y dirección creativa in-house. Elimina la fricción de coordinar cinco proveedores independientes.
+        Todo el ciclo resuelto con equipamiento propio y dirección creativa in-house. Cero fricción de coordinar múltiples proveedores.
       </p>
     </div>
 
     <!-- 🎬 NETFLIX-STYLE SPOTLIGHT BANNER (Línea Insignia: Eventos Corporativos & BTL) -->
-    <div class="relative w-full rounded-3xl bg-[#0B111D] border border-white/10 shadow-beautiful-lg overflow-hidden mb-12 group">
+    <div class="relative w-full rounded-3xl bg-[#0B111D] border border-white/10 shadow-beautiful-lg overflow-hidden mb-8 group">
       <!-- Ambient Glow in Corners -->
       <div class="absolute -left-20 -top-20 w-80 h-80 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="relative z-10 flex flex-col lg:flex-row items-stretch min-h-[460px] lg:min-h-[500px]">
+      <div class="relative z-10 flex flex-col lg:flex-row items-stretch min-h-[440px] lg:min-h-[480px]">
         
         <!-- LEFT SIDE: Netflix-Style Editorial Content -->
-        <div class="w-full lg:w-1/2 p-6 sm:p-10 lg:p-12 flex flex-col justify-center z-20">
+        <div class="w-full lg:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center z-20">
           <!-- Netflix Brand Tag / Ribbon -->
-          <div class="flex items-center gap-2.5 mb-4">
+          <div class="flex items-center gap-2.5 mb-3.5">
             <span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-tr from-brand-cyan to-brand-blue font-display font-black text-xs text-white shadow-glow-cyan">
               S
             </span>
@@ -46,7 +46,7 @@
           </div>
 
           <!-- Headline Display Grotesk -->
-          <h3 class="font-display font-black text-2xl sm:text-4xl lg:text-[2.6rem] text-white tracking-tight leading-[1.1] mb-4 uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+          <h3 class="font-display font-black text-2xl sm:text-3xl lg:text-[2.35rem] text-white tracking-tight leading-[1.12] mb-3.5 uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
             CONVENCIONES, GALAS <br class="hidden sm:inline" />
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-light to-white">
               & FIESTAS CORPORATIVAS.
@@ -54,7 +54,7 @@
           </h3>
 
           <!-- Netflix-Style Metadata Line -->
-          <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-5 font-mono text-xs">
+          <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-4 font-mono text-xs">
             <span class="text-emerald-400 font-bold tracking-wider">99% Recomendado</span>
             <span class="text-slate-600">•</span>
             <span class="text-slate-300">2026</span>
@@ -64,8 +64,8 @@
             <span class="px-2 py-0.5 rounded bg-brand-cyan/15 border border-brand-cyan/30 text-brand-cyan font-semibold text-[11px]">+2,500 PAX</span>
           </div>
 
-          <!-- Synopsis Description -->
-          <p class="font-body text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg mb-7 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+          <!-- Synopsis Description (Concise & punchy) -->
+          <p class="font-body text-slate-300 text-xs sm:text-sm leading-relaxed max-w-lg mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
             Puestas en escena masivas con pantallas LED gigantes, iluminación robótica de concierto y sonido envolvente. Diseñamos experiencias que rompen la inercia corporativa y transforman tu evento en el acontecimiento del año.
           </p>
 
@@ -76,20 +76,20 @@
               type="button"
               data-video-src="/videos/megalabs-fiesta-web.mp4"
               data-video-title="Sónica Perú | Mega Fiesta & Concierto Megalabs"
-              class="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-100 text-slate-900 font-bold px-6 py-3 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-beautiful-md group cursor-pointer"
+              class="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-100 text-slate-900 font-bold px-5 py-2.5 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-beautiful-md group cursor-pointer"
             >
               <svg class="w-4 h-4 fill-current text-slate-900 group-hover:text-brand-cyan transition-colors" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
-              <span class="text-sm font-bold tracking-wide">Ver Showreel</span>
+              <span class="text-xs sm:text-sm font-bold tracking-wide">Ver Showreel</span>
             </button>
 
             <!-- Secondary Action -->
             <a
               href="#contacto"
-              class="inline-flex items-center justify-center gap-2 bg-surface/80 hover:bg-surface-elevated text-white border border-white/15 hover:border-brand-cyan/40 px-5 py-3 rounded-xl backdrop-blur-md transition-all text-sm font-semibold"
+              class="inline-flex items-center justify-center gap-2 bg-surface/80 hover:bg-surface-elevated text-white border border-white/15 hover:border-brand-cyan/40 px-4 py-2.5 rounded-xl backdrop-blur-md transition-all text-xs sm:text-sm font-semibold"
             >
-              <svg class="w-4 h-4 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg class="w-3.5 h-3.5 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M12 5v14M5 12h14" />
               </svg>
               <span>Cotizar BTL</span>
@@ -100,15 +100,15 @@
               type="button"
               id="netflix-mute-toggle"
               aria-label="Activar o desactivar sonido del video"
-              class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-surface/80 hover:bg-surface-elevated text-slate-300 hover:text-white border border-white/15 transition-all hover:scale-105"
+              class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-surface/80 hover:bg-surface-elevated text-slate-300 hover:text-white border border-white/15 transition-all hover:scale-105"
               title="Activar audio de fondo"
             >
-              <svg id="netflix-mute-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg id="netflix-mute-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
                 <line x1="23" y1="9" x2="17" y2="15" />
                 <line x1="17" y1="9" x2="23" y2="15" />
               </svg>
-              <svg id="netflix-unmute-icon" class="w-5 h-5 hidden text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg id="netflix-unmute-icon" class="w-4 h-4 hidden text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
                 <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
               </svg>
@@ -116,8 +116,8 @@
           </div>
         </div>
 
-        <!-- RIGHT SIDE: The Cinematic Video with Smooth Left Feather Gradient -->
-        <div class="relative w-full lg:w-1/2 min-h-[320px] sm:min-h-[400px] lg:min-h-full flex-1 overflow-hidden self-stretch">
+        <!-- RIGHT SIDE: The Cinematic Video with Shorter & Left-Shifted Feather Gradient -->
+        <div class="relative w-full lg:w-1/2 min-h-[300px] sm:min-h-[380px] lg:min-h-full flex-1 overflow-hidden self-stretch">
           <video
             id="netflix-spotlight-video"
             autoplay
@@ -125,21 +125,21 @@
             loop
             playsinline
             poster="/posters/fiesta.webp"
-            class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.94] contrast-[1.12]"
+            class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.10]"
           >
             <source src="/videos/megalabs-fiesta-web.mp4" type="video/mp4" />
           </video>
 
-          <!-- Left Feathering Gradient: Smoothly dissolves video into container background (#0B111D) -->
-          <div class="absolute inset-y-0 left-0 w-32 sm:w-56 lg:w-80 bg-gradient-to-r from-[#0B111D] via-[#0B111D]/80 to-transparent pointer-events-none z-10"></div>
+          <!-- Left Feathering Gradient: Shorter (w-10 to w-20) and anchored slightly more to the left (-left-2) -->
+          <div class="absolute inset-y-0 -left-2 w-10 sm:w-16 lg:w-20 bg-gradient-to-r from-[#0B111D] via-[#0B111D]/60 to-transparent pointer-events-none z-10"></div>
 
-          <!-- Top, Bottom, and Right Feather Gradients -->
-          <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#0B111D]/90 via-[#0B111D]/40 to-transparent pointer-events-none z-10"></div>
-          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0B111D] via-[#0B111D]/70 to-transparent pointer-events-none z-10"></div>
-          <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0B111D]/60 to-transparent pointer-events-none z-10"></div>
+          <!-- Top, Bottom, and Right Feather Gradients (subtle and tight) -->
+          <div class="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#0B111D]/80 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#0B111D]/80 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#0B111D]/40 to-transparent pointer-events-none z-10"></div>
 
           <!-- Live Production Badge on top right of video -->
-          <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono text-slate-300 pointer-events-none">
+          <div class="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-20 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 text-xs font-mono text-slate-300 pointer-events-none">
             <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
             <span class="uppercase tracking-wider text-[10px]">Fiesta Megalabs • Concierto Real</span>
           </div>
@@ -148,123 +148,206 @@
       </div>
     </div>
 
-    <!-- SERVICES CARDS (Líneas 02 a 06 mantenidas tal como están) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- ⚡ COMPACT BENTO GRID (Con estilo & animación única por tarjeta) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
       
-      <!-- Card 2: Branding & Escenografía Ferial -->
-      <div class="gradient-border-card md:col-span-2 lg:col-span-2 p-8 flex flex-col justify-between group shadow-beautiful-md">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 21v-7m0 0V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10m-16 0h16m0 0v7M9 7h6" />
-              </svg>
-            </span>
+      <!-- CARD 02: Branding & Escenografía Efímera (Architecture Blueprint Grid Reveal) -->
+      <div class="gradient-border-card md:col-span-2 lg:col-span-2 p-5 sm:p-6 flex flex-col justify-between group overflow-hidden relative shadow-beautiful-md">
+        <!-- Unique Style: Architectural Blueprint Grid that reveals on hover -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(to_right,#00b2fe0f_1px,transparent_1px),linear-gradient(to_bottom,#00b2fe0f_1px,transparent_1px)] bg-[size:18px_18px] pointer-events-none rounded-2xl"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-3.5">
+            <div class="flex items-center gap-2.5">
+              <span class="w-9 h-9 rounded-lg bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center text-brand-cyan group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 21v-7m0 0V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10m-16 0h16m0 0v7M9 7h6" />
+                </svg>
+              </span>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-brand-cyan/80 bg-brand-cyan/10 border border-brand-cyan/20 px-2 py-0.5 rounded">
+                [ 3D CAD • STANDS ]
+              </span>
+            </div>
             <span class="font-mono text-xs text-slate-500">02 / 06</span>
           </div>
-          <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-brand-cyan transition-colors">
+
+          <h3 class="font-display font-bold text-lg text-white mb-1.5 group-hover:text-brand-cyan transition-colors">
             Branding & Escenografía Efímera
           </h3>
-          <p class="font-body text-slate-400 text-sm leading-relaxed mb-4">
-            Arquitectura de stands premium, tótems táctiles interactivos, letras corpóreas gigantes iluminadas y señalética de alto impacto para ferias agroexportadoras, mineras e inmobiliarias.
+          <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed max-w-xl">
+            Stands feriales de arquitectura efímera, tótems táctiles interactivos y letras corpóreas para minería, agro y retail.
           </p>
         </div>
-        <div class="text-xs font-mono text-brand-cyan/80 flex items-center gap-1">
-          <span>Stands SGS, Rendipel, Urbana Perú</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+
+        <div class="relative z-10 pt-3.5 mt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-400 text-[11px]">SGS, Rendipel, Urbana Perú</span>
+          <span class="text-brand-cyan flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Ver más</span>
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </div>
       </div>
 
-      <!-- Card 3: Producción & Merchandising Premium -->
-      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-7 flex flex-col justify-between group shadow-beautiful-md">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                <line x1="12" y1="22.08" x2="12" y2="12" />
-              </svg>
-            </span>
+      <!-- CARD 03: Merchandising de Élite (Metallic Shimmer Light Sweep) -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-5 sm:p-6 flex flex-col justify-between group overflow-hidden relative shadow-beautiful-md">
+        <!-- Unique Style: Angled Shimmer Light Sweep across the card on hover -->
+        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent pointer-events-none -skew-x-12"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-3.5">
+            <div class="flex items-center gap-2">
+              <span class="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-300 group-hover:scale-110 group-hover:border-amber-400/50 transition-all duration-300">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </span>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-amber-300/80 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded">
+                [ VIP FINISH ]
+              </span>
+            </div>
             <span class="font-mono text-xs text-slate-500">03 / 06</span>
           </div>
-          <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-cyan transition-colors">
+
+          <h3 class="font-display font-bold text-lg text-white mb-1.5 group-hover:text-amber-200 transition-colors">
             Merchandising de Élite & Trofeos
           </h3>
           <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Placas y galardones en acrílico/madera de lujo, kits corporativos VIP, sets de coctelería fina y ropa técnica deportiva. Cada objeto diseñado para perdurar.
+            Trofeos de autor en acrílico/madera noble, kits de bienvenida VIP y ropa técnica corporativa duradera.
           </p>
         </div>
-        <span class="font-mono text-[11px] text-slate-400 pt-4 border-t border-white/5">Natura, Avon, Pisco Colonial</span>
+
+        <div class="relative z-10 pt-3.5 mt-3 border-t border-white/5 font-mono text-[11px] text-slate-400">
+          Natura, Avon, Pisco Colonial
+        </div>
       </div>
 
-      <!-- Card 4: Producción Audiovisual & Cine -->
-      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-7 flex flex-col justify-between group shadow-beautiful-md">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="23 7 16 12 23 17 23 7" />
-                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-              </svg>
-            </span>
-            <span class="font-mono text-xs text-slate-500">04 / 06</span>
+      <!-- CARD 04: Producción Audiovisual (Live REC Indicator & Soundwave Visualizer) -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-5 sm:p-6 flex flex-col justify-between group overflow-hidden relative shadow-beautiful-md">
+        <!-- Subtle cine corner viewfinder marks -->
+        <div class="absolute top-2.5 left-2.5 w-2 h-2 border-t border-l border-white/20 group-hover:border-brand-cyan/50 transition-colors pointer-events-none"></div>
+        <div class="absolute top-2.5 right-2.5 w-2 h-2 border-t border-r border-white/20 group-hover:border-brand-cyan/50 transition-colors pointer-events-none"></div>
+        <div class="absolute bottom-2.5 left-2.5 w-2 h-2 border-b border-l border-white/20 group-hover:border-brand-cyan/50 transition-colors pointer-events-none"></div>
+        <div class="absolute bottom-2.5 right-2.5 w-2 h-2 border-b border-r border-white/20 group-hover:border-brand-cyan/50 transition-colors pointer-events-none"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-3.5">
+            <div class="flex items-center gap-2">
+              <span class="w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/25 flex items-center justify-center text-red-400 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="23 7 16 12 23 17 23 7" />
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                </svg>
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-mono text-[10px] text-red-400 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                REC 4K
+              </span>
+            </div>
+
+            <!-- Unique Micro-Interaction: Soundwave Visualizer on hover -->
+            <div class="flex items-center gap-2">
+              <div class="flex items-end gap-0.5 h-3">
+                <span class="w-0.5 h-1.5 bg-brand-cyan rounded-full transition-all duration-300 group-hover:h-3"></span>
+                <span class="w-0.5 h-3 bg-brand-cyan rounded-full transition-all duration-300 group-hover:h-1.5"></span>
+                <span class="w-0.5 h-2 bg-brand-cyan rounded-full transition-all duration-300 group-hover:h-3.5"></span>
+                <span class="w-0.5 h-2.5 bg-brand-cyan rounded-full transition-all duration-300 group-hover:h-2"></span>
+              </div>
+              <span class="font-mono text-xs text-slate-500">04 / 06</span>
+            </div>
           </div>
-          <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-cyan transition-colors">
+
+          <h3 class="font-display font-bold text-lg text-white mb-1.5 group-hover:text-brand-cyan transition-colors">
             Producción Audiovisual
           </h3>
           <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Cámaras de cine, drones, set de chroma key, spots publicitarios y edición express de reels en menos de 24 horas para amplificar el evento en redes.
+            Cámaras de cine, drones y postproducción express de reels en menos de 24h para amplificar el evento en redes.
           </p>
         </div>
-        <span class="font-mono text-[11px] text-slate-400 pt-4 border-t border-white/5">4K HDR • Cobertura Multicámara</span>
+
+        <div class="relative z-10 pt-3.5 mt-3 border-t border-white/5 font-mono text-[11px] text-slate-400">
+          4K HDR • Cobertura Multicámara
+        </div>
       </div>
 
-      <!-- Card 5: Endomarketing & Cultura Interna -->
-      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-7 flex flex-col justify-between group shadow-beautiful-md">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </span>
+      <!-- CARD 05: Endomarketing & People (Synergy Pulse & Engagement Aura) -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-5 sm:p-6 flex flex-col justify-between group overflow-hidden relative shadow-beautiful-md">
+        <!-- Unique Style: Synergy Pulse Aura expanding on hover -->
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-emerald-500/15 to-brand-cyan/15 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-3.5">
+            <div class="flex items-center gap-2">
+              <span class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </span>
+              <span class="inline-flex items-center gap-1 font-mono text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                98% NPS
+              </span>
+            </div>
             <span class="font-mono text-xs text-slate-500">05 / 06</span>
           </div>
-          <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-cyan transition-colors">
+
+          <h3 class="font-display font-bold text-lg text-white mb-1.5 group-hover:text-emerald-300 transition-colors">
             Endomarketing & People
           </h3>
           <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Team building disruptivo, torneos deportivos interempresas (SNI), jornadas de voluntariado y celebraciones temáticas que elevan el orgullo de pertenencia.
+            Team building vivencial, torneos deportivos SNI y celebraciones que multiplican el orgullo de pertenencia.
           </p>
         </div>
-        <span class="font-mono text-[11px] text-slate-400 pt-4 border-t border-white/5">RIMAC, Breca, Mercado Libre</span>
+
+        <div class="relative z-10 pt-3.5 mt-3 border-t border-white/5 font-mono text-[11px] text-slate-400">
+          RIMAC, Breca, Mercado Libre
+        </div>
       </div>
 
-      <!-- Card 6: Inteligencia & Experiencia de Marca -->
-      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-7 flex flex-col justify-between group shadow-beautiful-md">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="16" x2="12" y2="12" />
-                <line x1="12" y1="8" x2="12.01" y2="8" />
-              </svg>
-            </span>
-            <span class="font-mono text-xs text-slate-500">06 / 06</span>
+      <!-- CARD 06: Inteligencia & CX (Telemetry Sparkline Tracker) -->
+      <div class="gradient-border-card md:col-span-1 lg:col-span-1 p-5 sm:p-6 flex flex-col justify-between group overflow-hidden relative shadow-beautiful-md">
+        <!-- Unique Style: Live Telemetry Sparkline on top right -->
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-3.5">
+            <div class="flex items-center gap-2">
+              <span class="w-9 h-9 rounded-lg bg-brand-cyan/10 border border-brand-cyan/25 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="16" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
+              </span>
+              <span class="font-mono text-[10px] text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/20 px-2 py-0.5 rounded">
+                [ ROI TRACKER ]
+              </span>
+            </div>
+
+            <!-- Animated Mini Sparkline Bar Chart -->
+            <div class="flex items-center gap-2">
+              <div class="flex items-end gap-1 h-3.5 px-1.5 py-0.5 rounded bg-white/5 border border-white/10 group-hover:border-brand-cyan/30 transition-colors">
+                <div class="w-1 bg-slate-500 group-hover:bg-brand-cyan h-1.5 group-hover:h-2.5 rounded-xs transition-all duration-300"></div>
+                <div class="w-1 bg-slate-500 group-hover:bg-brand-cyan h-2 group-hover:h-3 rounded-xs transition-all duration-300 delay-75"></div>
+                <div class="w-1 bg-brand-cyan h-2.5 group-hover:h-3.5 rounded-xs transition-all duration-300 delay-150"></div>
+              </div>
+              <span class="font-mono text-xs text-slate-500">06 / 06</span>
+            </div>
           </div>
-          <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-cyan transition-colors">
+
+          <h3 class="font-display font-bold text-lg text-white mb-1.5 group-hover:text-brand-cyan transition-colors">
             Inteligencia & CX
           </h3>
           <p class="font-body text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Focus groups, mystery shopping presencial/digital, auditorías de servicio y optimización del Customer Journey. Medimos antes y después del evento.
+            Focus groups, mystery shopping y auditorías de experiencia con medición de ROI cuantitativo pre y post evento.
           </p>
         </div>
-        <span class="font-mono text-[11px] text-slate-400 pt-4 border-t border-white/5">Estudios Cualitativos & ROI</span>
+
+        <div class="relative z-10 pt-3.5 mt-3 border-t border-white/5 font-mono text-[11px] text-slate-400">
+          Estudios Cualitativos & ROI
+        </div>
       </div>
 
     </div>
