@@ -2,8 +2,8 @@
 // Hero.astro - Acto 1: El Impacto
 ---
 
-<section id="experiencias" class="relative min-h-[95vh] lg:min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 overflow-hidden">
-  <!-- Cinematic Background Video Loop -->
+<section id="experiencias" class="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-14 sm:pt-18 pb-12 px-4 sm:px-6 overflow-hidden">
+  <!-- Cinematic Background Video Loop (Noticeably clearer and vivid) -->
   <div class="absolute inset-0 z-0">
     <video
       autoplay
@@ -11,18 +11,18 @@
       loop
       playsinline
       poster="/posters/fiesta.webp"
-      class="w-full h-full object-cover opacity-35 scale-105 filter brightness-[0.75] contrast-[1.15]"
+      class="w-full h-full object-cover opacity-60 sm:opacity-65 scale-105 filter brightness-[0.88] contrast-[1.1]"
     >
       <source src="/videos/hero-loop.mp4" type="video/mp4" />
     </video>
-    <!-- Multi-layered dark vignette to preserve contrast and prevent harsh edges -->
-    <div class="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/70 to-canvas/80 mix-blend-multiply"></div>
-    <div class="absolute inset-0 bg-radial-vignette opacity-80 pointer-events-none"></div>
+    <!-- Multi-layered dark vignette to preserve contrast while revealing the live concert/event atmosphere -->
+    <div class="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/40 to-canvas/50"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(9,13,22,0.15)_0%,rgba(9,13,22,0.7)_100%)] pointer-events-none"></div>
   </div>
 
   <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
     <!-- Live Status Pill -->
-    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface/80 border border-white/10 backdrop-blur-md shadow-beautiful-sm mb-8 animate-fade-in">
+    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface/80 border border-white/10 backdrop-blur-md shadow-beautiful-sm mb-5 animate-fade-in">
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Main Headline with Display Grotesk Typography -->
-    <h1 class="font-display font-black tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] text-white leading-[1.05] max-w-4xl text-balance mb-6 uppercase">
+    <h1 class="font-display font-black tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-[4.75rem] text-white leading-[1.05] max-w-4xl text-balance mb-4 uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
       DISEÑAMOS, PRODUCIMOS <br class="hidden sm:inline" />
       <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-light to-white">
         Y SORPRENDEMOS.
@@ -41,13 +41,13 @@
     </h1>
 
     <!-- Value Proposition Copywriting -->
-    <p class="font-body text-slate-300 text-base sm:text-xl max-w-2xl text-balance leading-relaxed mb-10 font-normal">
+    <p class="font-body text-slate-200 text-base sm:text-lg max-w-2xl text-balance leading-relaxed mb-7 font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
       Transformamos conferencias masivas, galas y activaciones BTL en acontecimientos memorables.
       <strong class="text-white font-medium"> Cero intermediarios:</strong> estrategia, escenografía y cobertura audiovisual 100% in-house.
     </p>
 
     <!-- Action Buttons -->
-    <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-16">
+    <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10">
       <a
         href="#contacto"
         class="beam-glow-btn w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-light hover:to-brand-cyan text-white text-base font-semibold px-8 py-4 rounded-full shadow-glow-cyan transition-all transform hover:-translate-y-0.5 active:translate-y-0"
@@ -75,25 +75,40 @@
       </button>
     </div>
 
-    <!-- Trust Numbers & Proof Metrics (Beautiful md shadow) -->
-    <div class="grid grid-cols-3 gap-3 sm:gap-8 w-full max-w-3xl pt-8 border-t border-white/10">
-      <div class="flex flex-col items-center">
-        <span class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight text-shadow">
+    <!-- Trust Numbers & Proof Metrics (Animated Entrance + Count-Up) -->
+    <div id="hero-stats-container" class="grid grid-cols-3 gap-3 sm:gap-8 w-full max-w-3xl pt-6 border-t border-white/15">
+      <div class="hero-stat-card flex flex-col items-center opacity-0">
+        <span
+          class="stat-counter font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight text-shadow drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+          data-target="10"
+          data-prefix="+"
+          data-suffix=""
+        >
           +10
         </span>
-        <span class="font-body text-xs sm:text-sm text-slate-400 mt-1 font-medium">Años de Trayectoria</span>
+        <span class="font-body text-xs sm:text-sm text-slate-300 mt-1.5 font-medium text-center">Años de Trayectoria</span>
       </div>
-      <div class="flex flex-col items-center border-x border-white/10 px-2">
-        <span class="font-display font-bold text-2xl sm:text-4xl text-brand-cyan tracking-tight text-shadow">
+      <div class="hero-stat-card flex flex-col items-center border-x border-white/15 px-2 sm:px-4 opacity-0">
+        <span
+          class="stat-counter font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-brand-cyan tracking-tight text-shadow drop-shadow-[0_0_20px_rgba(0,178,254,0.45)]"
+          data-target="20"
+          data-prefix="+"
+          data-suffix=""
+        >
           +20
         </span>
-        <span class="font-body text-xs sm:text-sm text-slate-400 mt-1 font-medium">Marcas Corporativas</span>
+        <span class="font-body text-xs sm:text-sm text-slate-300 mt-1.5 font-medium text-center">Marcas Corporativas</span>
       </div>
-      <div class="flex flex-col items-center">
-        <span class="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight text-shadow">
+      <div class="hero-stat-card flex flex-col items-center opacity-0">
+        <span
+          class="stat-counter font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight text-shadow drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+          data-target="100"
+          data-prefix=""
+          data-suffix="%"
+        >
           100%
         </span>
-        <span class="font-body text-xs sm:text-sm text-slate-400 mt-1 font-medium">Producción In-House</span>
+        <span class="font-body text-xs sm:text-sm text-slate-300 mt-1.5 font-medium text-center">Producción In-House</span>
       </div>
     </div>
   </div>
@@ -101,3 +116,71 @@
   <!-- Bottom Smooth Gradient Fade into Marquee -->
   <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-canvas to-transparent pointer-events-none"></div>
 </section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  function initHeroStats() {
+    const statCards = document.querySelectorAll<HTMLElement>('.hero-stat-card');
+    const statCounters = document.querySelectorAll<HTMLElement>('.stat-counter');
+    if (!statCards.length || !statCounters.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      statCards.forEach((card) => {
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+      });
+      return;
+    }
+
+    // 1. Entrance animation for the statistic cards (staggered upward spring)
+    gsap.fromTo(
+      statCards,
+      { opacity: 0, y: 32, scale: 0.9 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.85,
+        stagger: 0.15,
+        ease: 'back.out(1.4)',
+        delay: 0.35,
+      }
+    );
+
+    // 2. Dynamic number count-up animation
+    statCounters.forEach((counter) => {
+      const target = parseInt(counter.dataset.target || '0', 10);
+      const prefix = counter.dataset.prefix || '';
+      const suffix = counter.dataset.suffix || '';
+      const state = { val: 0 };
+
+      counter.textContent = `${prefix}0${suffix}`;
+
+      gsap.to(state, {
+        val: target,
+        duration: 1.8,
+        delay: 0.45,
+        ease: 'power2.out',
+        onUpdate: () => {
+          counter.textContent = `${prefix}${Math.round(state.val)}${suffix}`;
+        },
+        onComplete: () => {
+          counter.textContent = `${prefix}${target}${suffix}`;
+          gsap.fromTo(
+            counter,
+            { scale: 1.1 },
+            { scale: 1, duration: 0.35, ease: 'power1.out' }
+          );
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroStats);
+  } else {
+    initHeroStats();
+  }
+</script>

@@ -2,7 +2,16 @@
 // Navbar.astro - Floating capsule navbar with glassmorphism & beam-glow button
 ---
 
-<header class="fixed top-5 inset-x-0 z-50 px-4 sm:px-6 pointer-events-none">
+<!-- Dynamic progressive blur behind navbar when scrolled past hero -->
+<div
+  id="navbar-top-blur"
+  class="fixed top-0 inset-x-0 h-24 pointer-events-none z-40 bg-gradient-to-b from-[#090D16]/90 via-[#090D16]/40 to-transparent backdrop-blur-md opacity-0 transition-opacity duration-500 [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]"
+></div>
+
+<header
+  id="main-navbar"
+  class="fixed top-5 inset-x-0 z-50 px-4 sm:px-6 pointer-events-none -translate-y-28 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+>
   <div class="max-w-6xl mx-auto flex items-center justify-between pointer-events-auto bg-[#0E1626]/85 backdrop-blur-xl border border-white/10 rounded-full px-5 py-3 shadow-beautiful-md">
     <!-- Brand Logo -->
     <a href="#" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan rounded-full p-1">
@@ -60,3 +69,59 @@
     </div>
   </div>
 </header>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initNavbarVisibility() {
+    const navbar = document.getElementById('main-navbar');
+    const topBlur = document.getElementById('navbar-top-blur');
+    const hero = document.getElementById('experiencias');
+
+    if (!navbar || !hero) return;
+
+    const showNavbar = () => {
+      navbar.classList.remove('-translate-y-28', 'opacity-0');
+      navbar.classList.add('translate-y-0', 'opacity-100');
+      topBlur?.classList.remove('opacity-0');
+      topBlur?.classList.add('opacity-100');
+    };
+
+    const hideNavbar = () => {
+      navbar.classList.remove('translate-y-0', 'opacity-100');
+      navbar.classList.add('-translate-y-28', 'opacity-0');
+      topBlur?.classList.remove('opacity-100');
+      topBlur?.classList.add('opacity-0');
+    };
+
+    // Trigger visibility as the user scrolls past the hero section
+    ScrollTrigger.create({
+      trigger: hero,
+      start: 'bottom 120px',
+      onEnter: showNavbar,
+      onLeaveBack: hideNavbar,
+    });
+
+    // Check initial position on load / reload
+    const checkScroll = () => {
+      const heroRect = hero.getBoundingClientRect();
+      if (heroRect.bottom <= 120) {
+        showNavbar();
+      } else {
+        hideNavbar();
+      }
+    };
+
+    checkScroll();
+    window.addEventListener('scroll', checkScroll, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbarVisibility);
+  } else {
+    initNavbarVisibility();
+  }
+</script>
