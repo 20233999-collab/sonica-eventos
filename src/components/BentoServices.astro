@@ -1,11 +1,11 @@
 ---
-// BentoServices.astro - Acto 4: La Máquina 360° (Bento Grid Asimétrico con css-border-gradient & beautiful-shadows)
+// BentoServices.astro - Acto 4: La Máquina 360° con Netflix Spotlight Banner + Grid de Servicios
 ---
 
 <section id="servicios" class="relative py-28 px-4 sm:px-6 bg-[#090D16]">
   <div class="max-w-6xl mx-auto">
     <!-- Header with Mono Counter -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
       <div>
         <div class="flex items-center gap-3 mb-3">
           <div class="h-px w-8 bg-brand-cyan"></div>
@@ -25,43 +25,134 @@
       </p>
     </div>
 
-    <!-- Asymmetric Bento Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      
-      <!-- Card 1: Eventos Corporativos & BTL (Featured Big Bento Card: spans 2 cols & 2 rows on lg) -->
-      <div class="gradient-border-card md:col-span-2 lg:col-span-2 p-8 flex flex-col justify-between overflow-hidden group shadow-beautiful-lg min-h-[420px]">
-        <!-- Background Ambient Glow & Subtle Video Overlay -->
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-cyan/15 rounded-full blur-3xl group-hover:bg-brand-cyan/25 transition-all duration-700 pointer-events-none"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/85 to-transparent z-0"></div>
+    <!-- 🎬 NETFLIX-STYLE SPOTLIGHT BANNER (Línea Insignia: Eventos Corporativos & BTL) -->
+    <div class="relative w-full rounded-3xl bg-[#0B111D] border border-white/10 shadow-beautiful-lg overflow-hidden mb-12 group">
+      <!-- Ambient Glow in Corners -->
+      <div class="absolute -left-20 -top-20 w-80 h-80 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row items-stretch min-h-[460px] lg:min-h-[500px]">
         
-        <div class="relative z-10">
-          <div class="flex items-center justify-between mb-6">
-            <span class="font-mono text-xs text-brand-cyan tracking-widest uppercase font-semibold px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20">
-              Línea Insignia
+        <!-- LEFT SIDE: Netflix-Style Editorial Content -->
+        <div class="w-full lg:w-1/2 p-6 sm:p-10 lg:p-12 flex flex-col justify-center z-20">
+          <!-- Netflix Brand Tag / Ribbon -->
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded bg-gradient-to-tr from-brand-cyan to-brand-blue font-display font-black text-xs text-white shadow-glow-cyan">
+              S
             </span>
-            <span class="font-mono text-xs text-slate-500">01 / 06</span>
+            <span class="font-mono text-xs uppercase tracking-widest text-brand-cyan font-bold">
+              PRODUCCIÓN INSIGNIA • TOP 1 EN EVENTOS
+            </span>
           </div>
-          
-          <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white mb-3 group-hover:text-brand-light transition-colors">
-            Eventos Corporativos & Activaciones BTL
+
+          <!-- Headline Display Grotesk -->
+          <h3 class="font-display font-black text-2xl sm:text-4xl lg:text-[2.6rem] text-white tracking-tight leading-[1.1] mb-4 uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+            CONVENCIONES, GALAS <br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-light to-white">
+              & FIESTAS CORPORATIVAS.
+            </span>
           </h3>
-          <p class="font-body text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg mb-6">
-            Experiencias masivas que emocionan, conmueven y generan conversación inmediata. Desde congresos médicos internacionales y galas de gala corporativa hasta activaciones en estadios, centros comerciales y vía pública.
-          </p>
-        </div>
 
-        <div class="relative z-10 pt-6 border-t border-white/10">
-          <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-300">
-            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10">Convenciones Anuales</span>
-            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10">Lanzamientos Médicos</span>
-            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10">Maratones & Estadios</span>
-            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10">Fiestas de Integración</span>
+          <!-- Netflix-Style Metadata Line -->
+          <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-5 font-mono text-xs">
+            <span class="text-emerald-400 font-bold tracking-wider">99% Recomendado</span>
+            <span class="text-slate-600">•</span>
+            <span class="text-slate-300">2026</span>
+            <span class="text-slate-600">•</span>
+            <span class="px-2 py-0.5 rounded bg-white/10 border border-white/20 text-slate-200 font-semibold text-[11px]">100% IN-HOUSE</span>
+            <span class="px-2 py-0.5 rounded bg-white/10 border border-white/20 text-slate-200 font-semibold text-[11px]">4K ULTRA HD</span>
+            <span class="px-2 py-0.5 rounded bg-brand-cyan/15 border border-brand-cyan/30 text-brand-cyan font-semibold text-[11px]">+2,500 PAX</span>
+          </div>
+
+          <!-- Synopsis Description -->
+          <p class="font-body text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg mb-7 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+            Puestas en escena masivas con pantallas LED gigantes, iluminación robótica de concierto y sonido envolvente. Diseñamos experiencias que rompen la inercia corporativa y transforman tu evento en el acontecimiento del año.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3">
+            <!-- Play Button (White solid) -->
+            <button
+              type="button"
+              data-video-src="/videos/megalabs-fiesta-web.mp4"
+              data-video-title="Sónica Perú | Mega Fiesta & Concierto Megalabs"
+              class="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-100 text-slate-900 font-bold px-6 py-3 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-beautiful-md group cursor-pointer"
+            >
+              <svg class="w-4 h-4 fill-current text-slate-900 group-hover:text-brand-cyan transition-colors" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              <span class="text-sm font-bold tracking-wide">Ver Showreel</span>
+            </button>
+
+            <!-- Secondary Action -->
+            <a
+              href="#contacto"
+              class="inline-flex items-center justify-center gap-2 bg-surface/80 hover:bg-surface-elevated text-white border border-white/15 hover:border-brand-cyan/40 px-5 py-3 rounded-xl backdrop-blur-md transition-all text-sm font-semibold"
+            >
+              <svg class="w-4 h-4 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+              <span>Cotizar BTL</span>
+            </a>
+
+            <!-- Mute / Unmute Toggle Button for ambient video -->
+            <button
+              type="button"
+              id="netflix-mute-toggle"
+              aria-label="Activar o desactivar sonido del video"
+              class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-surface/80 hover:bg-surface-elevated text-slate-300 hover:text-white border border-white/15 transition-all hover:scale-105"
+              title="Activar audio de fondo"
+            >
+              <svg id="netflix-mute-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
+              </svg>
+              <svg id="netflix-unmute-icon" class="w-5 h-5 hidden text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+              </svg>
+            </button>
           </div>
         </div>
-      </div>
 
+        <!-- RIGHT SIDE: The Cinematic Video with Smooth Left Feather Gradient -->
+        <div class="relative w-full lg:w-1/2 min-h-[320px] sm:min-h-[400px] lg:min-h-full flex-1 overflow-hidden self-stretch">
+          <video
+            id="netflix-spotlight-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="/posters/fiesta.webp"
+            class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.94] contrast-[1.12]"
+          >
+            <source src="/videos/megalabs-fiesta-web.mp4" type="video/mp4" />
+          </video>
+
+          <!-- Left Feathering Gradient: Smoothly dissolves video into container background (#0B111D) -->
+          <div class="absolute inset-y-0 left-0 w-32 sm:w-56 lg:w-80 bg-gradient-to-r from-[#0B111D] via-[#0B111D]/80 to-transparent pointer-events-none z-10"></div>
+
+          <!-- Top, Bottom, and Right Feather Gradients -->
+          <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#0B111D]/90 via-[#0B111D]/40 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0B111D] via-[#0B111D]/70 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0B111D]/60 to-transparent pointer-events-none z-10"></div>
+
+          <!-- Live Production Badge on top right of video -->
+          <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono text-slate-300 pointer-events-none">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            <span class="uppercase tracking-wider text-[10px]">Fiesta Megalabs • Concierto Real</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SERVICES CARDS (Líneas 02 a 06 mantenidas tal como están) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
       <!-- Card 2: Branding & Escenografía Ferial -->
-      <div class="gradient-border-card md:col-span-1 lg:col-span-2 p-8 flex flex-col justify-between group shadow-beautiful-md">
+      <div class="gradient-border-card md:col-span-2 lg:col-span-2 p-8 flex flex-col justify-between group shadow-beautiful-md">
         <div>
           <div class="flex items-center justify-between mb-4">
             <span class="w-10 h-10 rounded-xl bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
@@ -179,3 +270,34 @@
     </div>
   </div>
 </section>
+
+<script>
+  function initNetflixBanner() {
+    const video = document.getElementById('netflix-spotlight-video') as HTMLVideoElement | null;
+    const muteBtn = document.getElementById('netflix-mute-toggle');
+    const muteIcon = document.getElementById('netflix-mute-icon');
+    const unmuteIcon = document.getElementById('netflix-unmute-icon');
+
+    if (!video || !muteBtn) return;
+
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (!video.muted) {
+        video.volume = 0.6;
+        muteIcon?.classList.add('hidden');
+        unmuteIcon?.classList.remove('hidden');
+        muteBtn.setAttribute('title', 'Silenciar audio');
+      } else {
+        muteIcon?.classList.remove('hidden');
+        unmuteIcon?.classList.add('hidden');
+        muteBtn.setAttribute('title', 'Activar audio');
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNetflixBanner);
+  } else {
+    initNetflixBanner();
+  }
+</script>
