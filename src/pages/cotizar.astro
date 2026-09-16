@@ -206,29 +206,32 @@ import Layout from '../layouts/Layout.astro';
           <!-- Option E: Campaña 360° -->
           <button
             type="button"
-            class="wizard-option-btn sm:col-span-2 group relative flex items-start gap-3.5 p-4.5 rounded-2xl bg-gradient-to-r from-[#0E1626] to-[#162035] hover:from-[#162035] hover:to-[#1c2944] active:scale-[0.98] border border-brand-cyan/40 hover:border-brand-cyan text-left transition-all duration-150 shadow-beautiful-md hover:shadow-glow-cyan cursor-pointer"
+            class="wizard-option-btn sm:col-span-2 group relative flex items-center gap-4 sm:gap-5 p-5 sm:p-5.5 rounded-2xl bg-gradient-to-r from-[#0E1626] to-[#162035] hover:from-[#162035] hover:to-[#1c2944] active:scale-[0.98] border border-brand-cyan/40 hover:border-brand-cyan text-left transition-all duration-150 shadow-beautiful-md hover:shadow-glow-cyan cursor-pointer"
             data-key="tipo_evento"
             data-value="Campaña Integral 360°"
           >
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center shrink-0 text-white shadow-glow-cyan group-hover:scale-105 transition-all">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            <!-- Large Distinctive Cyan Glowing Icon -->
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center shrink-0 text-white shadow-glow-cyan group-hover:scale-105 transition-all">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
             </div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
+
+            <!-- Content Area with Generous Spacing -->
+            <div class="flex-1 min-w-0 pr-1">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-2.5">
                   <h3 class="font-display font-black text-base sm:text-lg text-white group-hover:text-brand-light transition-colors">
-                    Campaña Integral 360° All-In-One
+                    Campaña Integral 360°
                   </h3>
-                  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/40">
-                    TOP 1
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/40 tracking-wider uppercase">
+                    RECOMENDADO
                   </span>
                 </div>
-                <span class="font-mono text-[10px] text-brand-cyan border border-brand-cyan/30 px-1.5 py-0.5 rounded">E</span>
+                <span class="font-mono text-xs text-brand-cyan border border-brand-cyan/30 px-2 py-0.5 rounded shrink-0">E</span>
               </div>
-              <p class="font-body text-xs text-slate-300 leading-snug mt-1">
-                Escenografía LED + Audio y luces + Merch corporativo + Reels y BTL sin intermediarios.
+              <p class="font-body text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Producción integral de punta a punta: escenografía LED, sonido in-house, BTL masivo, merchandising y video.
               </p>
             </div>
           </button>
@@ -815,17 +818,50 @@ import Layout from '../layouts/Layout.astro';
             <label for="input-telefono" class="block font-mono text-xs text-slate-300 uppercase tracking-wider mb-1.5 font-semibold">
               Teléfono / WhatsApp de Contacto <span class="text-brand-cyan">*</span>
             </label>
-            <div class="relative">
-              <input
-                type="tel"
-                id="input-telefono"
-                required
-                class="w-full px-4 py-3.5 pl-11 rounded-xl bg-[#0E1626]/90 border border-white/15 focus:border-brand-cyan text-white placeholder-slate-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-cyan/20 transition-all font-body"
-                placeholder="+51 9XX XXX XXX"
-              />
-              <svg class="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-              </svg>
+            <div class="flex items-stretch gap-2">
+              <!-- Country Code Selector (Defaults to Peru +51 with others available) -->
+              <div class="relative shrink-0">
+                <select
+                  id="select-country-code"
+                  class="h-full appearance-none bg-[#0E1626]/90 border border-white/15 focus:border-brand-cyan text-white text-xs sm:text-sm rounded-xl py-3.5 pl-3 pr-8 focus:outline-none focus:ring-2 focus:ring-brand-cyan/20 transition-all font-mono cursor-pointer"
+                  title="Seleccionar país / código de área"
+                >
+                  <option value="+51" selected>🇵🇪 +51 (Perú)</option>
+                  <option value="+56">🇨🇱 +56 (Chile)</option>
+                  <option value="+57">🇨🇴 +57 (Colombia)</option>
+                  <option value="+52">🇲🇽 +52 (México)</option>
+                  <option value="+54">🇦🇷 +54 (Argentina)</option>
+                  <option value="+593">🇪🇨 +593 (Ecuador)</option>
+                  <option value="+591">🇧🇴 +591 (Bolivia)</option>
+                  <option value="+55">🇧🇷 +55 (Brasil)</option>
+                  <option value="+1">🇺🇸 +1 (EE.UU. / Can)</option>
+                  <option value="+34">🇪🇸 +34 (España)</option>
+                  <option value="+507">🇵🇦 +507 (Panamá)</option>
+                  <option value="+598">🇺🇾 +598 (Uruguay)</option>
+                  <option value="+595">🇵🇾 +595 (Paraguay)</option>
+                  <option value="+506">🇨🇷 +506 (Costa Rica)</option>
+                  <option value="+502">🇬🇹 +502 (Guatemala)</option>
+                  <option value="+58">🇻🇪 +58 (Venezuela)</option>
+                  <option value="+">🌐 Otro (+...)</option>
+                </select>
+                <svg class="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </div>
+
+              <!-- Local Phone Number Input -->
+              <div class="relative flex-1">
+                <input
+                  type="tel"
+                  id="input-telefono"
+                  required
+                  class="w-full px-4 py-3.5 pl-10 rounded-xl bg-[#0E1626]/90 border border-white/15 focus:border-brand-cyan text-white placeholder-slate-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-cyan/20 transition-all font-body font-medium"
+                  placeholder="9XX XXX XXX"
+                />
+                <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1288,6 +1324,7 @@ import Layout from '../layouts/Layout.astro';
     // Step 10: Final Submit with Validation & Loading State
     const inputEmail = document.getElementById('input-email') as HTMLInputElement;
     const inputTelefono = document.getElementById('input-telefono') as HTMLInputElement;
+    const selectCountryCode = document.getElementById('select-country-code') as HTMLSelectElement;
     const btnFinalSubmit = document.getElementById('btn-final-submit') as HTMLButtonElement;
     const step10Error = document.getElementById('step-10-error');
     const submitBtnText = document.getElementById('submit-btn-text');
@@ -1296,9 +1333,10 @@ import Layout from '../layouts/Layout.astro';
 
     btnFinalSubmit?.addEventListener('click', () => {
       const email = inputEmail?.value.trim();
-      const telefono = inputTelefono?.value.trim();
+      const rawPhone = inputTelefono?.value.trim();
+      const countryCode = selectCountryCode?.value || '+51';
       const emailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      const telValid = telefono && telefono.length >= 7;
+      const telValid = rawPhone && rawPhone.length >= 6;
 
       if (!emailValid || !telValid) {
         if (step10Error) step10Error.classList.remove('hidden');
@@ -1312,7 +1350,7 @@ import Layout from '../layouts/Layout.astro';
 
       if (step10Error) step10Error.classList.add('hidden');
       formData.email = email;
-      formData.telefono = telefono;
+      formData.telefono = `${countryCode} ${rawPhone}`.trim();
 
       // Loading state
       btnFinalSubmit.disabled = true;
