@@ -1,0 +1,1146 @@
+---
+// src/pages/cotizar.astro - Onboarding de Cotización B2B Paso a Paso
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Cotizador Interactivo de Eventos & BTL | SÓNICA PERÚ"
+  description="Diseña tu evento corporativo, activación BTL o producción audiovisual a medida en 10 pasos rápidos. Un agente de cuentas se contactará lo antes posible con tu propuesta."
+>
+  <div class="min-h-screen bg-canvas text-slate-100 flex flex-col justify-between relative overflow-x-hidden selection:bg-brand-cyan/30 selection:text-white">
+    
+    <!-- Ambient Background Lighting -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-brand-cyan/10 rounded-full blur-[160px] mix-blend-screen"></div>
+      <div class="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-[180px] mix-blend-screen"></div>
+    </div>
+
+    <!-- UNIVERSAL HEADER: Centered Logo + Exit Link -->
+    <header class="w-full relative z-20 border-b border-white/5 bg-canvas/80 backdrop-blur-md">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+        <!-- Back to site button (Desktop spacer / exit) -->
+        <a
+          href="/"
+          class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors group py-1 px-2 rounded-lg hover:bg-white/5"
+          title="Volver a la página principal"
+        >
+          <svg class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          <span class="hidden sm:inline">Volver a inicio</span>
+          <span class="sm:hidden">Inicio</span>
+        </a>
+
+        <!-- CENTERED LOGO: SÓNICA PERÚ -->
+        <a href="/" class="flex items-center gap-2.5 group mx-auto pr-6 sm:pr-0">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center shadow-glow-cyan shrink-0 group-hover:scale-105 transition-transform duration-300">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 10v3" />
+              <path d="M6 6v11" />
+              <path d="M10 3v18" />
+              <path d="M14 8v7" />
+              <path d="M18 5v13" />
+              <path d="M22 10v4" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-extrabold tracking-tight text-base sm:text-lg text-white leading-none">
+              SÓNICA<span class="text-brand-cyan">.</span>
+            </span>
+            <span class="font-mono text-[9px] sm:text-[10px] tracking-widest text-slate-400 uppercase -mt-0.5">PERÚ</span>
+          </div>
+        </a>
+
+        <!-- Exit Cross -->
+        <a
+          href="/"
+          class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition-colors"
+          title="Cerrar cotizador"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- UNIVERSAL PROGRESS BAR: Directly Under the Logo -->
+      <div class="w-full bg-white/5 h-1 relative overflow-hidden">
+        <div
+          id="progress-bar-fill"
+          class="h-full bg-gradient-to-r from-brand-cyan via-brand-light to-brand-cyan shadow-glow-cyan transition-all duration-500 ease-out"
+          style="width: 10%;"
+        ></div>
+      </div>
+    </header>
+
+    <!-- MAIN INTERACTIVE WIZARD CONTAINER -->
+    <main class="relative z-10 flex-1 flex flex-col justify-center items-center px-4 sm:px-6 py-6 sm:py-10 max-w-3xl mx-auto w-full">
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 1: Tipo de Experiencia o Servicio -->
+      <!-- ========================================== -->
+      <section id="step-1" class="wizard-step w-full flex flex-col items-center animate-fade-in" data-step="1">
+        <!-- Question Header -->
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 01 • Requerimiento Principal
+          </span>
+          <h1 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿Qué tipo de experiencia deseas crear?
+          </h1>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Selecciona la categoría que mejor define la necesidad de tu empresa.
+          </p>
+        </div>
+
+        <!-- Options Grid (Single Select - Auto Advance) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 w-full max-w-2xl">
+          <!-- Option A -->
+          <button
+            type="button"
+            class="wizard-option-btn group relative flex items-start gap-3.5 p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all duration-200 shadow-beautiful-sm hover:shadow-glow-cyan"
+            data-key="tipo_evento"
+            data-value="Convención o Congreso Corporativo"
+          >
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 group-hover:border-brand-cyan/40 px-2 py-1 rounded-lg shrink-0 mt-0.5 transition-colors">
+              A
+            </span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-brand-light transition-colors">
+                Convención o Congreso
+              </h3>
+              <p class="font-body text-xs sm:text-sm text-slate-400 leading-snug mt-0.5">
+                Plenarias, lanzamientos anuales, jornadas ejecutivas y ferias internas.
+              </p>
+            </div>
+          </button>
+
+          <!-- Option B -->
+          <button
+            type="button"
+            class="wizard-option-btn group relative flex items-start gap-3.5 p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all duration-200 shadow-beautiful-sm hover:shadow-glow-cyan"
+            data-key="tipo_evento"
+            data-value="Fiesta de Integración / Gala Anual"
+          >
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 group-hover:border-brand-cyan/40 px-2 py-1 rounded-lg shrink-0 mt-0.5 transition-colors">
+              B
+            </span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-brand-light transition-colors">
+                Fiesta de Integración / Gala
+              </h3>
+              <p class="font-body text-xs sm:text-sm text-slate-400 leading-snug mt-0.5">
+                Fiestas de fin de año, aniversarios, premiaciones VIP y cenas temáticas.
+              </p>
+            </div>
+          </button>
+
+          <!-- Option C -->
+          <button
+            type="button"
+            class="wizard-option-btn group relative flex items-start gap-3.5 p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all duration-200 shadow-beautiful-sm hover:shadow-glow-cyan"
+            data-key="tipo_evento"
+            data-value="Activación BTL o Stand Ferial"
+          >
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 group-hover:border-brand-cyan/40 px-2 py-1 rounded-lg shrink-0 mt-0.5 transition-colors">
+              C
+            </span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-brand-light transition-colors">
+                Activación BTL / Stand
+              </h3>
+              <p class="font-body text-xs sm:text-sm text-slate-400 leading-snug mt-0.5">
+                Puntos de venta, ferias comerciales, dinámicas interactivas y anfitrionaje.
+              </p>
+            </div>
+          </button>
+
+          <!-- Option D -->
+          <button
+            type="button"
+            class="wizard-option-btn group relative flex items-start gap-3.5 p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all duration-200 shadow-beautiful-sm hover:shadow-glow-cyan"
+            data-key="tipo_evento"
+            data-value="Producción Audiovisual & Spots"
+          >
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 group-hover:border-brand-cyan/40 px-2 py-1 rounded-lg shrink-0 mt-0.5 transition-colors">
+              D
+            </span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-brand-light transition-colors">
+                Producción Audiovisual
+              </h3>
+              <p class="font-body text-xs sm:text-sm text-slate-400 leading-snug mt-0.5">
+                Cobertura con multicámara, reels verticales, spots comerciales y streaming.
+              </p>
+            </div>
+          </button>
+
+          <!-- Option E (Spans 2 cols on desktop) -->
+          <button
+            type="button"
+            class="wizard-option-btn sm:col-span-2 group relative flex items-start gap-3.5 p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all duration-200 shadow-beautiful-sm hover:shadow-glow-cyan"
+            data-key="tipo_evento"
+            data-value="Campaña Integral 360°"
+          >
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 group-hover:border-brand-cyan/40 px-2 py-1 rounded-lg shrink-0 mt-0.5 transition-colors">
+              E
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-brand-light transition-colors">
+                  Campaña Integral 360° All-In-One
+                </h3>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30">
+                  RECOMENDADO
+                </span>
+              </div>
+              <p class="font-body text-xs sm:text-sm text-slate-400 leading-snug mt-0.5">
+                Escenografía de gran formato + Audio y luces + Merch premium + Video y BTL sin intermediarios.
+              </p>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 2: Sector o Industria de la Empresa -->
+      <!-- ========================================== -->
+      <section id="step-2" class="wizard-step w-full flex-col items-center hidden" data-step="2">
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 02 • Contexto Corporativo
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿A qué sector pertenece tu empresa?
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Nos permite adaptar los protocolos, estilo visual y estándares de la propuesta.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-2xl">
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="sector" data-value="Farmacéutica, Salud & Belleza">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">A</span>
+            <span class="font-body font-medium text-sm sm:text-base text-slate-200 group-hover:text-white">Farmacéutica, Salud & Belleza</span>
+          </button>
+
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="sector" data-value="Banca, Finanzas, Seguros & Fintech">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">B</span>
+            <span class="font-body font-medium text-sm sm:text-base text-slate-200 group-hover:text-white">Banca, Seguros & Fintech</span>
+          </button>
+
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="sector" data-value="Consumo Masivo, Retail & Bebidas">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">C</span>
+            <span class="font-body font-medium text-sm sm:text-base text-slate-200 group-hover:text-white">Consumo Masivo, Retail & Bebidas</span>
+          </button>
+
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="sector" data-value="Inmobiliaria, Construcción & Arquitectura">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">D</span>
+            <span class="font-body font-medium text-sm sm:text-base text-slate-200 group-hover:text-white">Inmobiliaria & Construcción</span>
+          </button>
+
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="sector" data-value="Minería, Energía, Industria & Logística">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">E</span>
+            <span class="font-body font-medium text-sm sm:text-base text-slate-200 group-hover:text-white">Minería, Energía & Logística</span>
+          </button>
+
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="sector" data-value="Tecnología, Telecomunicaciones & Medios">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">F</span>
+            <span class="font-body font-medium text-sm sm:text-base text-slate-200 group-hover:text-white">Tecnología & Telecomunicaciones</span>
+          </button>
+
+          <button type="button" class="wizard-option-btn sm:col-span-2 group flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="sector" data-value="Otro Sector Empresarial">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">G</span>
+            <span class="font-body font-medium text-sm sm:text-base text-slate-200 group-hover:text-white">Otro sector empresarial / Servicios generales</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 3: Aforo o Cantidad de Asistentes -->
+      <!-- ========================================== -->
+      <section id="step-3" class="wizard-step w-full flex-col items-center hidden" data-step="3">
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 03 • Escala de Asistentes
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿Cuántas personas asistirán al evento?
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Calcularemos los requerimientos de audio, pantallas LED y acreditación.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full max-w-2xl">
+          <button type="button" class="wizard-option-btn group p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="aforo" data-value="Formato VIP / Íntimo (Hasta 80 pers.)">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">A</span>
+            <h4 class="font-display font-bold text-base text-white mt-2 group-hover:text-brand-light">Hasta 80 invitados</h4>
+            <p class="font-body text-xs text-slate-400">Reuniones directivas, lanzamientos VIP y cenas exclusivas.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="aforo" data-value="Formato Mediano (80 a 300 pers.)">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">B</span>
+            <h4 class="font-display font-bold text-base text-white mt-2 group-hover:text-brand-light">80 a 300 invitados</h4>
+            <p class="font-body text-xs text-slate-400">Jornadas de integración, capacitaciones y aniversarios medianos.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="aforo" data-value="Gran Escala Corporativa (300 a 1,000 pers.)">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">C</span>
+            <h4 class="font-display font-bold text-base text-white mt-2 group-hover:text-brand-light">300 a 1,000 asistentes</h4>
+            <p class="font-body text-xs text-slate-400">Convenciones anuales, fiestas de fin de año y congresos.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="aforo" data-value="Aforo Masivo (+1,000 personas)">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">D</span>
+            <h4 class="font-display font-bold text-base text-white mt-2 group-hover:text-brand-light">Más de 1,000 personas</h4>
+            <p class="font-body text-xs text-slate-400">Estadios, explanadas, maratones y festivales multitudinarios.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn sm:col-span-2 group p-3.5 sm:p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all flex items-center justify-between" data-key="aforo" data-value="Por definir / Requiere asesoría">
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">E</span>
+              <span class="font-body font-medium text-sm text-slate-200 group-hover:text-white">Aún por definir (necesitamos asesoría de capacidad)</span>
+            </div>
+            <span class="font-mono text-xs text-brand-cyan">➔</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 4: Nivel de Urgencia / Fecha Tentativa -->
+      <!-- ========================================== -->
+      <section id="step-4" class="wizard-step w-full flex-col items-center hidden" data-step="4">
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 04 • Cronograma & Tiempos
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿Para cuándo está planificado el evento?
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Evaluaremos disponibilidad técnica inmediata o plazos de diseño escenográfico.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full max-w-2xl">
+          <button type="button" class="wizard-option-btn group p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="tiempo" data-value="Inmediato (Menos de 30 días)">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">A</span>
+              <span class="inline-block w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+            </div>
+            <h4 class="font-display font-bold text-base text-white group-hover:text-brand-light">Menos de 30 días (Urgente)</h4>
+            <p class="font-body text-xs text-slate-400 mt-1">Puesta en marcha express con equipamiento in-house listo.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="tiempo" data-value="Próximos 1 a 3 meses">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">B</span>
+            <h4 class="font-display font-bold text-base text-white mt-2 group-hover:text-brand-light">Próximos 1 a 3 meses</h4>
+            <p class="font-body text-xs text-slate-400 mt-1">Plazo óptimo para renderizado 3D, branding y montaje integral.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="tiempo" data-value="En más de 3 meses">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">C</span>
+            <h4 class="font-display font-bold text-base text-white mt-2 group-hover:text-brand-light">En más de 3 meses</h4>
+            <p class="font-body text-xs text-slate-400 mt-1">Planificación anual, licitaciones y reservas anticipadas.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 sm:p-4.5 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="tiempo" data-value="Solo explorando presupuestos">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">D</span>
+            <h4 class="font-display font-bold text-base text-white mt-2 group-hover:text-brand-light">Solo explorando costos</h4>
+            <p class="font-body text-xs text-slate-400 mt-1">Necesito un estimado para presentar partida a gerencia.</p>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 5: Rango de Inversión / Presupuesto (PEN) -->
+      <!-- ========================================== -->
+      <section id="step-5" class="wizard-step w-full flex-col items-center hidden" data-step="5">
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 05 • Techo Presupuestal
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿Cuál es el presupuesto proyectado?
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Diseñamos la propuesta técnica exacta a tu rango en Soles (PEN) sin sobrecostos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full max-w-2xl">
+          <button type="button" class="wizard-option-btn group p-4 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="presupuesto" data-value="S/ 15,000 – S/ 35,000 PEN">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">A</span>
+            <h4 class="font-display font-bold text-lg text-white mt-2 group-hover:text-brand-light">S/ 15,000 – S/ 35,000</h4>
+            <p class="font-body text-xs text-slate-400 mt-0.5">Activaciones puntuales, stands y piezas audiovisuales.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="presupuesto" data-value="S/ 35,000 – S/ 80,000 PEN">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">B</span>
+            <h4 class="font-display font-bold text-lg text-white mt-2 group-hover:text-brand-light">S/ 35,000 – S/ 80,000</h4>
+            <p class="font-body text-xs text-slate-400 mt-0.5">Eventos medianos, galas ejecutivas y stands feriales.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="presupuesto" data-value="S/ 80,000 – S/ 200,000 PEN">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">C</span>
+            <h4 class="font-display font-bold text-lg text-white mt-2 group-hover:text-brand-light">S/ 80,000 – S/ 200,000</h4>
+            <p class="font-body text-xs text-slate-400 mt-0.5">Grandes convenciones, fiestas corporativas masivas y shows.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn group p-4 rounded-2xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="presupuesto" data-value="Más de S/ 200,000 PEN">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">D</span>
+            <h4 class="font-display font-bold text-lg text-white mt-2 group-hover:text-brand-light">Más de S/ 200,000</h4>
+            <p class="font-body text-xs text-slate-400 mt-0.5">Mega-producciones 360°, festivales o campañas a nivel nacional.</p>
+          </button>
+
+          <button type="button" class="wizard-option-btn sm:col-span-2 group p-3.5 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all flex items-center justify-between" data-key="presupuesto" data-value="Aún por definir / Necesito propuesta y asesoría">
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">E</span>
+              <span class="font-body font-medium text-sm text-slate-200 group-hover:text-white">Aún por definir (necesito asesoría y propuesta base)</span>
+            </div>
+            <span class="font-mono text-xs text-brand-cyan">➔</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 6: Servicios y Componentes Específicos (Multi-select) -->
+      <!-- ========================================== -->
+      <section id="step-6" class="wizard-step w-full flex-col items-center hidden" data-step="6">
+        <div class="text-center mb-5 sm:mb-6 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 06 • Componentes Técnicos
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿Qué servicios específicos necesitas?
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Puedes seleccionar múltiples opciones. Todo es resuelto 100% in-house.
+          </p>
+        </div>
+
+        <!-- Multi-select Checklist -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 w-full max-w-2xl mb-6" id="multi-services-container">
+          <label class="multi-check-card flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1626]/80 border border-white/10 hover:border-brand-cyan/40 cursor-pointer transition-all">
+            <input type="checkbox" value="Escenografía & Pantallas LED gigantes" class="service-checkbox w-4 h-4 rounded border-white/20 text-brand-cyan focus:ring-brand-cyan bg-slate-900" />
+            <span class="font-body text-xs sm:text-sm text-slate-200 font-medium">Escenografía, Truss & Pantallas LED gigantes</span>
+          </label>
+
+          <label class="multi-check-card flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1626]/80 border border-white/10 hover:border-brand-cyan/40 cursor-pointer transition-all">
+            <input type="checkbox" value="Audio profesional & Iluminación robótica" class="service-checkbox w-4 h-4 rounded border-white/20 text-brand-cyan focus:ring-brand-cyan bg-slate-900" />
+            <span class="font-body text-xs sm:text-sm text-slate-200 font-medium">Audio profesional & Iluminación robótica</span>
+          </label>
+
+          <label class="multi-check-card flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1626]/80 border border-white/10 hover:border-brand-cyan/40 cursor-pointer transition-all">
+            <input type="checkbox" value="Cobertura Audiovisual, Dron & Reels para redes" class="service-checkbox w-4 h-4 rounded border-white/20 text-brand-cyan focus:ring-brand-cyan bg-slate-900" />
+            <span class="font-body text-xs sm:text-sm text-slate-200 font-medium">Video multicámara, Dron & Reels en vivo</span>
+          </label>
+
+          <label class="multi-check-card flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1626]/80 border border-white/10 hover:border-brand-cyan/40 cursor-pointer transition-all">
+            <input type="checkbox" value="Merchandising corporativo & Kits VIP" class="service-checkbox w-4 h-4 rounded border-white/20 text-brand-cyan focus:ring-brand-cyan bg-slate-900" />
+            <span class="font-body text-xs sm:text-sm text-slate-200 font-medium">Merchandising premium & Kits corporativos</span>
+          </label>
+
+          <label class="multi-check-card flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1626]/80 border border-white/10 hover:border-brand-cyan/40 cursor-pointer transition-all">
+            <input type="checkbox" value="Catering, Coctelería o Coffee Break" class="service-checkbox w-4 h-4 rounded border-white/20 text-brand-cyan focus:ring-brand-cyan bg-slate-900" />
+            <span class="font-body text-xs sm:text-sm text-slate-200 font-medium">Catering, Coctelería de autor & Coffee</span>
+          </label>
+
+          <label class="multi-check-card flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1626]/80 border border-white/10 hover:border-brand-cyan/40 cursor-pointer transition-all">
+            <input type="checkbox" value="Anfitrionas, Maestros de Ceremonia & Shows" class="service-checkbox w-4 h-4 rounded border-white/20 text-brand-cyan focus:ring-brand-cyan bg-slate-900" />
+            <span class="font-body text-xs sm:text-sm text-slate-200 font-medium">Anfitrionas, Maestros de Ceremonia & Shows</span>
+          </label>
+
+          <label class="multi-check-card sm:col-span-2 flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1626]/80 border border-white/10 hover:border-brand-cyan/40 cursor-pointer transition-all">
+            <input type="checkbox" value="Registro digital, Tótems táctiles & Códigos QR" class="service-checkbox w-4 h-4 rounded border-white/20 text-brand-cyan focus:ring-brand-cyan bg-slate-900" />
+            <span class="font-body text-xs sm:text-sm text-slate-200 font-medium">Registro digital, Tótems táctiles & Acreditación con QR</span>
+          </label>
+        </div>
+
+        <!-- Continue Button -->
+        <button
+          type="button"
+          id="btn-step-6-continue"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-light hover:to-brand-cyan text-white text-sm font-semibold px-8 py-3.5 rounded-full shadow-glow-cyan transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+        >
+          <span>Continuar</span>
+          <span class="font-mono text-xs opacity-75 hidden sm:inline">(Enter ↵)</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 7: Breve Descripción o Reto del Evento -->
+      <!-- ========================================== -->
+      <section id="step-7" class="wizard-step w-full flex-col items-center hidden" data-step="7">
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 07 • Visión Creativa
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            Cuéntanos sobre tu idea o reto principal
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Temática, lugar tentativo o cualquier detalle para preparar la propuesta.
+          </p>
+        </div>
+
+        <div class="w-full max-w-2xl flex flex-col items-center gap-4">
+          <div class="w-full relative">
+            <textarea
+              id="input-descripcion"
+              rows="4"
+              class="w-full rounded-2xl bg-[#0E1626]/90 border border-white/15 focus:border-brand-cyan text-white placeholder-slate-500 p-4 sm:p-5 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-cyan/20 transition-all resize-none font-body leading-relaxed"
+              placeholder="Ejemplo: Buscamos celebrar los 25 años de la empresa para 350 colaboradores. Queremos una puesta en escena futurista, pantallas LED y un show de apertura impactante..."
+            ></textarea>
+            <div class="absolute bottom-3 right-4 font-mono text-[10px] text-slate-500" id="desc-char-count">
+              Opcional pero recomendado
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            <button
+              type="button"
+              id="btn-step-7-continue"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-light hover:to-brand-cyan text-white text-sm font-semibold px-8 py-3.5 rounded-full shadow-glow-cyan transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <span>Continuar</span>
+              <span class="font-mono text-xs opacity-75 hidden sm:inline">(Enter ↵)</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+
+            <button
+              type="button"
+              id="btn-step-7-skip"
+              class="text-xs font-mono text-slate-400 hover:text-white py-2 px-4 transition-colors"
+            >
+              Omitir este detalle por ahora ➔
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 8: Nombre y Empresa -->
+      <!-- ========================================== -->
+      <section id="step-8" class="wizard-step w-full flex-col items-center hidden" data-step="8">
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 08 • Datos de la Organización
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿A nombre de quién emitimos la propuesta?
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Personalizaremos el dossier comercial con la ficha de tu empresa.
+          </p>
+        </div>
+
+        <div class="w-full max-w-lg flex flex-col gap-4">
+          <div>
+            <label for="input-nombre" class="block font-mono text-xs text-slate-300 uppercase tracking-wider mb-1.5 font-semibold">
+              Tu Nombre y Apellidos <span class="text-brand-cyan">*</span>
+            </label>
+            <input
+              type="text"
+              id="input-nombre"
+              required
+              class="w-full px-4 py-3.5 rounded-xl bg-[#0E1626]/90 border border-white/15 focus:border-brand-cyan text-white placeholder-slate-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-cyan/20 transition-all font-body"
+              placeholder="Ej. Carlos Mendoza"
+            />
+          </div>
+
+          <div>
+            <label for="input-empresa" class="block font-mono text-xs text-slate-300 uppercase tracking-wider mb-1.5 font-semibold">
+              Nombre de la Empresa u Organización <span class="text-brand-cyan">*</span>
+            </label>
+            <input
+              type="text"
+              id="input-empresa"
+              required
+              class="w-full px-4 py-3.5 rounded-xl bg-[#0E1626]/90 border border-white/15 focus:border-brand-cyan text-white placeholder-slate-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-cyan/20 transition-all font-body"
+              placeholder="Ej. Megalabs Perú / BBVA / Inmobiliaria Urbana"
+            />
+          </div>
+
+          <div id="step-8-error" class="hidden text-xs text-rose-400 font-mono text-center">
+            Por favor ingresa tu nombre y el nombre de tu empresa para continuar.
+          </div>
+
+          <button
+            type="button"
+            id="btn-step-8-continue"
+            class="w-full mt-2 inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-light hover:to-brand-cyan text-white text-sm font-semibold px-8 py-3.5 rounded-full shadow-glow-cyan transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <span>Continuar</span>
+            <span class="font-mono text-xs opacity-75 hidden sm:inline">(Enter ↵)</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 9: Cargo o Rol en la Empresa -->
+      <!-- ========================================== -->
+      <section id="step-9" class="wizard-step w-full flex-col items-center hidden" data-step="9">
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 09 • Tu Rol en el Proyecto
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿Cuál es tu rol dentro de la empresa?
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Nos permite enfocar el dossier en impacto de marca, cultura interna o presupuestos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-2xl">
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="cargo" data-value="Marketing, Marca o Publicidad (CMO / Brand Manager)">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">A</span>
+            <div>
+              <h4 class="font-body font-bold text-sm sm:text-base text-white">Marketing, Marca o BTL</h4>
+              <p class="font-body text-xs text-slate-400">Brand Manager, Director de Marketing o Publicidad.</p>
+            </div>
+          </button>
+
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="cargo" data-value="Gestión Humana, Personas o Clima (RRHH)">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">B</span>
+            <div>
+              <h4 class="font-body font-bold text-sm sm:text-base text-white">Gestión Humana & RRHH</h4>
+              <p class="font-body text-xs text-slate-400">People & Culture, Comunicaciones Internas o Clima.</p>
+            </div>
+          </button>
+
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="cargo" data-value="Gerencia General, Directorio o Finanzas">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">C</span>
+            <div>
+              <h4 class="font-body font-bold text-sm sm:text-base text-white">Gerencia General / C-Level</h4>
+              <p class="font-body text-xs text-slate-400">CEO, Gerente de Operaciones o Finanzas.</p>
+            </div>
+          </button>
+
+          <button type="button" class="wizard-option-btn group flex items-center gap-3 p-4 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="cargo" data-value="Compras, Logística o Adquisiciones">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">D</span>
+            <div>
+              <h4 class="font-body font-bold text-sm sm:text-base text-white">Compras & Logística</h4>
+              <p class="font-body text-xs text-slate-400">Gestor de Adquisiciones, Proveedores o Licitaciones.</p>
+            </div>
+          </button>
+
+          <button type="button" class="wizard-option-btn sm:col-span-2 group flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1626]/80 hover:bg-[#162035] border border-white/10 hover:border-brand-cyan/60 text-left transition-all" data-key="cargo" data-value="Asistente de Gerencia / Coordinador de Eventos">
+            <span class="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-cyan border border-white/10 px-2 py-0.5 rounded">E</span>
+            <span class="font-body font-medium text-sm text-slate-200 group-hover:text-white">Asistente de Gerencia / Coordinador de Eventos</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PÁGINA 10: Canales de Contacto Directo -->
+      <!-- ========================================== -->
+      <section id="step-10" class="wizard-step w-full flex-col items-center hidden" data-step="10">
+        <div class="text-center mb-6 sm:mb-8 max-w-xl">
+          <span class="inline-block font-mono text-xs uppercase tracking-widest text-brand-cyan font-semibold mb-2">
+            Paso 10 • Envío de Propuesta
+          </span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-2">
+            ¿A qué canales te enviamos la cotización?
+          </h2>
+          <p class="font-body text-slate-400 text-sm sm:text-base leading-relaxed">
+            Te asignaremos un Director de Cuentas para enviarte la propuesta formal.
+          </p>
+        </div>
+
+        <div class="w-full max-w-lg flex flex-col gap-4">
+          <div>
+            <label for="input-email" class="block font-mono text-xs text-slate-300 uppercase tracking-wider mb-1.5 font-semibold">
+              Correo Electrónico Corporativo <span class="text-brand-cyan">*</span>
+            </label>
+            <input
+              type="email"
+              id="input-email"
+              required
+              class="w-full px-4 py-3.5 rounded-xl bg-[#0E1626]/90 border border-white/15 focus:border-brand-cyan text-white placeholder-slate-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-cyan/20 transition-all font-body"
+              placeholder="nombre@tuempresa.com"
+            />
+          </div>
+
+          <div>
+            <label for="input-telefono" class="block font-mono text-xs text-slate-300 uppercase tracking-wider mb-1.5 font-semibold">
+              Teléfono / WhatsApp de Contacto <span class="text-brand-cyan">*</span>
+            </label>
+            <input
+              type="tel"
+              id="input-telefono"
+              required
+              class="w-full px-4 py-3.5 rounded-xl bg-[#0E1626]/90 border border-white/15 focus:border-brand-cyan text-white placeholder-slate-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-cyan/20 transition-all font-body"
+              placeholder="+51 9XX XXX XXX"
+            />
+          </div>
+
+          <div id="step-10-error" class="hidden text-xs text-rose-400 font-mono text-center">
+            Por favor ingresa un correo corporativo válido y tu número de teléfono.
+          </div>
+
+          <!-- Final Submit Button -->
+          <button
+            type="button"
+            id="btn-final-submit"
+            class="w-full mt-2 inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-cyan via-brand-light to-brand-blue hover:from-brand-light hover:to-brand-cyan text-white font-semibold text-base px-8 py-4 rounded-full shadow-glow-cyan transition-all transform hover:-translate-y-0.5 active:translate-y-0 group"
+          >
+            <span id="submit-btn-text">Finalizar Cotización y Solicitar Propuesta</span>
+            <svg id="submit-btn-icon" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+            <div id="submit-btn-spinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+          </button>
+
+          <p class="font-body text-xs text-slate-500 text-center mt-1">
+            🔒 Privacidad garantizada. Cero spam. Datos tratados bajo estricta confidencialidad corporativa.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PANTALLA FINAL: Confirmación & Asignación de Agente -->
+      <!-- ========================================== -->
+      <section id="step-success" class="wizard-step w-full flex-col items-center hidden" data-step="success">
+        <div class="max-w-xl w-full text-center flex flex-col items-center">
+          
+          <!-- Animated Checkmark Badge -->
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center shadow-glow-cyan mb-5 animate-bounce-short">
+            <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+
+          <!-- Status Indicator -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-mono text-xs uppercase tracking-widest font-semibold mb-4">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            Solicitud Registrada con Éxito
+          </div>
+
+          <!-- Main Success Headline -->
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight uppercase leading-tight mb-3">
+            ¡Cotización Recibida!
+          </h2>
+
+          <!-- USER REQUESTED HIGHLIGHT: Un agente se encargará de contactarte lo antes posible -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#0E1626] to-[#162035] border border-brand-cyan/40 shadow-beautiful-lg mb-6 text-left w-full">
+            <div class="flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 flex items-center justify-center shrink-0 mt-0.5 text-brand-cyan">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-white text-base sm:text-lg leading-snug">
+                  Un agente especializado se encargará de contactarte lo antes posible.
+                </h3>
+                <p class="font-body text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                  Nuestro equipo de cuentas y producción técnica ya tiene tu proyecto en bandeja. Te responderemos en un plazo máximo de <strong class="text-brand-cyan">2 horas hábiles</strong> con una propuesta diseñada a tu medida.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Recap Box -->
+          <div class="w-full bg-[#0E1626]/70 border border-white/10 rounded-2xl p-4 sm:p-5 text-left mb-6 text-xs sm:text-sm space-y-2 font-body">
+            <h4 class="font-mono text-xs uppercase tracking-widest text-slate-400 font-semibold mb-2">
+              Resumen de la Solicitud
+            </h4>
+            <div class="flex justify-between border-b border-white/5 pb-1.5">
+              <span class="text-slate-400">Cliente / Empresa:</span>
+              <span class="text-white font-medium" id="recap-nombre-empresa">-</span>
+            </div>
+            <div class="flex justify-between border-b border-white/5 pb-1.5">
+              <span class="text-slate-400">Tipo de Evento:</span>
+              <span class="text-brand-light font-medium" id="recap-tipo">-</span>
+            </div>
+            <div class="flex justify-between border-b border-white/5 pb-1.5">
+              <span class="text-slate-400">Aforo Estimado:</span>
+              <span class="text-white font-medium" id="recap-aforo">-</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Rango Presupuestal:</span>
+              <span class="text-emerald-400 font-semibold" id="recap-presupuesto">-</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center gap-3 w-full justify-center">
+            <a
+              href="/"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-cyan to-brand-blue text-white font-semibold text-sm px-6 py-3.5 rounded-full shadow-glow-cyan transition-all hover:scale-102"
+            >
+              <span>Volver a la Web Principal</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+
+            <a
+              href="/PRESENTACION%20SONICA%20PERU.pdf"
+              download="PRESENTACION SONICA PERU.pdf"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-surface border border-white/15 text-slate-200 hover:text-white font-medium text-sm px-5 py-3.5 rounded-full hover:bg-surface-elevated transition-all"
+            >
+              <svg class="w-4 h-4 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Descargar Credencial PDF (Brochure)</span>
+            </a>
+          </div>
+
+          <p class="font-mono text-[11px] text-slate-500 mt-6">
+            ¿Es una urgencia inmediata? Llámanos directamente al <a href="tel:+51948435104" class="text-brand-cyan hover:underline">+51 948 435 104</a>
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- UNIVERSAL FOOTER: "← Atrás" Button + "Página X de 10" Counter -->
+    <footer id="wizard-bottom-bar" class="w-full relative z-20 border-t border-white/5 bg-canvas/90 backdrop-blur-md py-3.5 sm:py-4 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        
+        <!-- Back Button -->
+        <button
+          type="button"
+          id="btn-step-prev"
+          class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-400 hover:text-white py-1.5 px-3 rounded-lg hover:bg-white/5 transition-all opacity-0 pointer-events-none"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          <span>Atrás</span>
+        </button>
+
+        <!-- Page Counter: "Página X de 10" -->
+        <div class="font-mono text-xs sm:text-sm font-semibold text-slate-400 tracking-wider">
+          <span id="page-counter-text" class="text-brand-cyan">Página 1</span> <span class="text-slate-600">/</span> <span class="text-slate-400">10</span>
+        </div>
+
+        <!-- Keyboard Hint (Desktop Only) -->
+        <div class="hidden sm:flex items-center gap-1.5 font-mono text-[11px] text-slate-500">
+          <span>Usa teclas</span>
+          <kbd class="px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-slate-300">A - E</kbd>
+          <span>o clic</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Wizard State Machine & Client Script -->
+  <script>
+    // Wizard Data Store
+    const formData: Record<string, any> = {
+      tipo_evento: '',
+      sector: '',
+      aforo: '',
+      tiempo: '',
+      presupuesto: '',
+      servicios: [] as string[],
+      descripcion: '',
+      nombre: '',
+      empresa: '',
+      cargo: '',
+      email: '',
+      telefono: ''
+    };
+
+    let currentStep = 1;
+    const totalSteps = 10;
+
+    // DOM Elements
+    const progressBarFill = document.getElementById('progress-bar-fill') as HTMLElement;
+    const pageCounterText = document.getElementById('page-counter-text') as HTMLElement;
+    const btnPrev = document.getElementById('btn-step-prev') as HTMLButtonElement;
+    const bottomBar = document.getElementById('wizard-bottom-bar') as HTMLElement;
+
+    // Step Sections
+    const steps: HTMLElement[] = [];
+    for (let i = 1; i <= totalSteps; i++) {
+      const el = document.getElementById(`step-${i}`);
+      if (el) steps.push(el);
+    }
+    const stepSuccess = document.getElementById('step-success') as HTMLElement;
+
+    // Check for query parameter (e.g. ?servicio=btl)
+    const urlParams = new URLSearchParams(window.location.search);
+    const prefillServicio = urlParams.get('servicio');
+    if (prefillServicio) {
+      if (prefillServicio.toLowerCase().includes('btl')) {
+        formData.tipo_evento = 'Activación BTL o Stand Ferial';
+      } else if (prefillServicio.toLowerCase().includes('audiovisual')) {
+        formData.tipo_evento = 'Producción Audiovisual & Spots';
+      } else if (prefillServicio.toLowerCase().includes('gala') || prefillServicio.toLowerCase().includes('fiesta')) {
+        formData.tipo_evento = 'Fiesta de Integración / Gala Anual';
+      }
+    }
+
+    // Function to render a specific step
+    function goToStep(stepNum: number) {
+      if (stepNum < 1 || stepNum > totalSteps + 1) return;
+
+      // Hide all steps
+      steps.forEach((el) => {
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      if (stepSuccess) {
+        stepSuccess.classList.add('hidden');
+        stepSuccess.classList.remove('flex');
+      }
+
+      currentStep = stepNum;
+
+      if (currentStep <= totalSteps) {
+        const activeStep = steps[currentStep - 1];
+        if (activeStep) {
+          activeStep.classList.remove('hidden');
+          activeStep.classList.add('flex');
+        }
+
+        // Update progress bar
+        const percent = Math.round((currentStep / totalSteps) * 100);
+        if (progressBarFill) {
+          progressBarFill.style.width = `${percent}%`;
+        }
+
+        // Update page counter
+        if (pageCounterText) {
+          pageCounterText.textContent = `Página ${currentStep}`;
+        }
+
+        // Handle prev button visibility
+        if (btnPrev) {
+          if (currentStep === 1) {
+            btnPrev.classList.add('opacity-0', 'pointer-events-none');
+          } else {
+            btnPrev.classList.remove('opacity-0', 'pointer-events-none');
+          }
+        }
+
+        // Focus first input if any
+        setTimeout(() => {
+          const input = activeStep?.querySelector('input, textarea') as HTMLElement;
+          if (input && window.innerWidth > 768) {
+            input.focus();
+          }
+        }, 150);
+
+      } else {
+        // Step Success
+        if (stepSuccess) {
+          stepSuccess.classList.remove('hidden');
+          stepSuccess.classList.add('flex');
+        }
+        if (progressBarFill) {
+          progressBarFill.style.width = '100%';
+        }
+        if (bottomBar) {
+          bottomBar.classList.add('hidden');
+        }
+
+        // Populate recap
+        const recapNombreEmpresa = document.getElementById('recap-nombre-empresa');
+        const recapTipo = document.getElementById('recap-tipo');
+        const recapAforo = document.getElementById('recap-aforo');
+        const recapPresupuesto = document.getElementById('recap-presupuesto');
+
+        if (recapNombreEmpresa) {
+          recapNombreEmpresa.textContent = `${formData.nombre || 'Cliente'} (${formData.empresa || 'Empresa'})`;
+        }
+        if (recapTipo) {
+          recapTipo.textContent = formData.tipo_evento || 'Experiencia Personalizada';
+        }
+        if (recapAforo) {
+          recapAforo.textContent = formData.aforo || 'Por definir';
+        }
+        if (recapPresupuesto) {
+          recapPresupuesto.textContent = formData.presupuesto || 'Por definir';
+        }
+      }
+
+      // Scroll smoothly to top of wizard container
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Auto-advance click handlers for single-select buttons
+    document.querySelectorAll('.wizard-option-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const button = e.currentTarget as HTMLButtonElement;
+        const key = button.getAttribute('data-key');
+        const val = button.getAttribute('data-value');
+
+        if (key && val) {
+          formData[key] = val;
+
+          // Add active styles
+          const parent = button.closest('.wizard-step');
+          parent?.querySelectorAll('.wizard-option-btn').forEach((b) => {
+            b.classList.remove('border-brand-cyan', 'bg-[#162035]', 'shadow-glow-cyan');
+          });
+          button.classList.add('border-brand-cyan', 'bg-[#162035]', 'shadow-glow-cyan');
+
+          // Snappy auto advance after 220ms
+          setTimeout(() => {
+            goToStep(currentStep + 1);
+          }, 220);
+        }
+      });
+    });
+
+    // Step 6: Continue button for multi-select
+    const btnStep6 = document.getElementById('btn-step-6-continue');
+    btnStep6?.addEventListener('click', () => {
+      const checkedBoxes = document.querySelectorAll<HTMLInputElement>('.service-checkbox:checked');
+      formData.servicios = Array.from(checkedBoxes).map(cb => cb.value);
+      goToStep(7);
+    });
+
+    // Step 7: Continue or Skip description
+    const descInput = document.getElementById('input-descripcion') as HTMLTextAreaElement;
+    const btnStep7 = document.getElementById('btn-step-7-continue');
+    const btnStep7Skip = document.getElementById('btn-step-7-skip');
+
+    btnStep7?.addEventListener('click', () => {
+      if (descInput) formData.descripcion = descInput.value.trim();
+      goToStep(8);
+    });
+
+    btnStep7Skip?.addEventListener('click', () => {
+      formData.descripcion = '';
+      goToStep(8);
+    });
+
+    // Step 8: Nombre y Empresa
+    const inputNombre = document.getElementById('input-nombre') as HTMLInputElement;
+    const inputEmpresa = document.getElementById('input-empresa') as HTMLInputElement;
+    const btnStep8 = document.getElementById('btn-step-8-continue');
+    const step8Error = document.getElementById('step-8-error');
+
+    btnStep8?.addEventListener('click', () => {
+      const nombre = inputNombre?.value.trim();
+      const empresa = inputEmpresa?.value.trim();
+
+      if (!nombre || !empresa) {
+        if (step8Error) step8Error.classList.remove('hidden');
+        if (!nombre && inputNombre) inputNombre.focus();
+        else if (!empresa && inputEmpresa) inputEmpresa.focus();
+        return;
+      }
+
+      if (step8Error) step8Error.classList.add('hidden');
+      formData.nombre = nombre;
+      formData.empresa = empresa;
+      goToStep(9);
+    });
+
+    // Step 10: Email y Teléfono (Final Submit)
+    const inputEmail = document.getElementById('input-email') as HTMLInputElement;
+    const inputTelefono = document.getElementById('input-telefono') as HTMLInputElement;
+    const btnFinalSubmit = document.getElementById('btn-final-submit') as HTMLButtonElement;
+    const step10Error = document.getElementById('step-10-error');
+    const submitBtnText = document.getElementById('submit-btn-text');
+    const submitBtnIcon = document.getElementById('submit-btn-icon');
+    const submitBtnSpinner = document.getElementById('submit-btn-spinner');
+
+    btnFinalSubmit?.addEventListener('click', () => {
+      const email = inputEmail?.value.trim();
+      const telefono = inputTelefono?.value.trim();
+      const emailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const telValid = telefono && telefono.length >= 7;
+
+      if (!emailValid || !telValid) {
+        if (step10Error) step10Error.classList.remove('hidden');
+        return;
+      }
+
+      if (step10Error) step10Error.classList.add('hidden');
+      formData.email = email;
+      formData.telefono = telefono;
+
+      // Loading state
+      btnFinalSubmit.disabled = true;
+      if (submitBtnText) submitBtnText.textContent = 'Procesando y Asignando Agente...';
+      if (submitBtnIcon) submitBtnIcon.classList.add('hidden');
+      if (submitBtnSpinner) submitBtnSpinner.classList.remove('hidden');
+
+      // Save to localStorage for client-side persistence
+      try {
+        const history = JSON.parse(localStorage.getItem('sonica_cotizaciones') || '[]');
+        history.push({ ...formData, timestamp: new Date().toISOString() });
+        localStorage.setItem('sonica_cotizaciones', JSON.stringify(history));
+      } catch (e) {
+        console.warn('LocalStorage not available');
+      }
+
+      // Simulate network request / API dispatch
+      setTimeout(() => {
+        goToStep(11); // Success state
+      }, 1000);
+    });
+
+    // Previous Button click
+    btnPrev?.addEventListener('click', () => {
+      if (currentStep > 1) {
+        goToStep(currentStep - 1);
+      }
+    });
+
+    // Keyboard navigation (Enter to advance on inputs, keys A-E on options)
+    window.addEventListener('keydown', (e) => {
+      if (currentStep > totalSteps) return;
+
+      // Enter key handler
+      if (e.key === 'Enter' && !e.shiftKey) {
+        if (currentStep === 6) {
+          e.preventDefault();
+          btnStep6?.click();
+        } else if (currentStep === 7) {
+          // If in textarea, ctrl+enter or click continue
+          if (document.activeElement !== descInput) {
+            e.preventDefault();
+            btnStep7?.click();
+          }
+        } else if (currentStep === 8) {
+          e.preventDefault();
+          btnStep8?.click();
+        } else if (currentStep === 10) {
+          e.preventDefault();
+          btnFinalSubmit?.click();
+        }
+      }
+
+      // Escape key to go back
+      if (e.key === 'Escape' && currentStep > 1) {
+        e.preventDefault();
+        goToStep(currentStep - 1);
+      }
+
+      // Quick key selection (A, B, C, D, E) when not typing in an input
+      const isTyping = ['INPUT', 'TEXTAREA'].includes((document.activeElement?.tagName || ''));
+      if (!isTyping && ['a', 'b', 'c', 'd', 'e', 'f', 'g'].includes(e.key.toLowerCase())) {
+        const activeStep = steps[currentStep - 1];
+        if (activeStep) {
+          const optionBtns = activeStep.querySelectorAll<HTMLButtonElement>('.wizard-option-btn');
+          const indexMap: Record<string, number> = { a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6 };
+          const btnToClick = optionBtns[indexMap[e.key.toLowerCase()]];
+          if (btnToClick) {
+            e.preventDefault();
+            btnToClick.click();
+          }
+        }
+      }
+    });
+
+    // Initialize first step
+    goToStep(1);
+  </script>
+</Layout>
