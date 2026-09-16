@@ -31,6 +31,8 @@ El proyecto cuenta con materiales de alto valor multimedia y comercial:
 | **`Megalabs - Fiesta - Wide.mp4`** | Video MP4 (H.264 / AAC) | 1920x1080 (16:9), 02:15 min (~389 MB) | Cobertura en plano panorámico de la fiesta anual/corporativa de integración de colaboradores de Megalabs: pantallas LED gigantes, iluminación robótica, pista de baile, ambientación y show en vivo. |
 | **`REEL LADYSOFT - COTIDIAN.mp4`** | Video MP4 (H.264 / AAC) | 1080x1920 (9:16 Vertical), 00:45 min (~82 MB) | Reel dinámico para redes sociales (formato Stories/TikTok/Reels) de la activación BTL en feria comercial para marcas de Softys (Ladysoft y Cotidian). Muestra arquitectura de stand, módulos interactivos con tótems táctiles, anfitrionas y juegos de premios. |
 | **`REEL URBANA PARK_1.mp4`** | Video MP4 (H.264 / AAC) | 1080x1920 (9:16 Vertical), 00:41 min (~75 MB) | Reel vertical de lanzamiento y velada corporativa nocturna del proyecto inmobiliario **Urbana Park** para la empresa Urbana Perú. Decoración lumínica, letras corpóreas iluminadas, barra de coctelería y networking. |
+| **`prd-cotizador.md`** | Documentación de producto | Markdown (~9 KB) | PRD y especificación técnica exhaustiva del Onboarding de Cotización B2B interactivo en 10 páginas. |
+| **`src/pages/cotizar.astro`** | Página Astro / Componente | Código Frontend (~85 KB) | Asistente interactivo paso a paso con auto-avance, transiciones GSAP, selector de país y asignación de agente. |
 
 ---
 
@@ -135,3 +137,25 @@ Marcas corporativas, multinacionales e instituciones que han confiado en Sónica
   * Generación de versiones web con audio (`megalabs-dahea-web.mp4`, `megalabs-fiesta-web.mp4`, `ladysoft-web.mp4`, `urbana-web.mp4`).
 * **Validación Visual y QA:** Pruebas automatizadas con Playwright, verificación de cero errores en consola y captura de snapshots en resoluciones desktop y mobile.
 * **Versionado & Despliegue:** Creación de repositorio en GitHub y vinculación con Vercel para despliegue continuo de producción.
+
+### Sesión 3 (15 Septiembre 2026):
+* **Definición & PRD del Onboarding de Cotización:**
+  * Creación del documento rector [`prd-cotizador.md`](prd-cotizador.md) especificando el asistente interactivo tipo Typeform / Linear para cotizaciones corporativas sin fricción.
+* **Estructura Universal de 10 Páginas (`/cotizar`):**
+  * Morfología uniforme en cada paso: Logotipo de Sónica Perú centrado en el header, barra de progreso animada con micro-glow directamente debajo con indicador de fase y porcentaje, titular display en `Outfit`, tarjetas de respuesta con auto-avance táctil instantáneo y footer con botón de retroceso (`← Atrás`) y contador de página (`Página X de 10`).
+* **Implementación & Matriz de 5 Skills Especializadas:**
+  * **`emil-design-eng`:** Transiciones físicas elásticas entre diapositivas con resorte direccional, feedback táctil (`active:scale-[0.98]`) y micro-shakes elásticos en validaciones obligatorias.
+  * **`gsap`:** Animación fluida de la barra de progreso, interpolación de etapas y sincronización de auto-avance calibrado a 200ms.
+  * **`beam-glow-states` & `css-border-gradient`:** Iluminación cian eléctrica (`#00B2FE`) en tarjetas seleccionadas y contador dinámico en vivo en selección múltiple (Paso 6: *"3 servicios seleccionados"*).
+  * **`beautiful-shadows`:** Elevación neutral en tarjetas oscuras sobre el canvas `#090D16`.
+  * **`design-taste-frontend` & `high-end-visual-design`:** Iconografía distintiva por tarjeta para comprensión visual en menos de 0.5s y sugerencias rápidas de texto en el Paso 7.
+* **Refinamiento UI/UX Solicitado por el Usuario:**
+  * **Paso 1 (Campaña 360°):** Rediseño espacioso del botón con holgura visual (`p-5 sm:p-5.5`, `gap-4 sm:gap-5`), insignia destacada `RECOMENDADO` y tipografía sin saturación.
+  * **Paso 10 (Teléfono con extensión internacional):** Integración de selector desplegable con bandera y código de área por defecto `🇵🇪 +51 (Perú)` más de 15 países de Latinoamérica, EE.UU., Canadá y España.
+  * **Pantalla de Confirmación:** Asignación explícita de Director de Cuentas especializado (*"Un agente especializado se encargará de contactarte lo antes posible"* en < 2 horas hábiles), ficha resumen en vivo y descarga del brochure en PDF.
+* **Conexión Global:**
+  * Enlace activo en [`Navbar.astro`](src/components/Navbar.astro) (desktop y drawer móvil) y botón de acceso directo en [`B2BContactForm.astro`](src/components/B2BContactForm.astro).
+* **QA & Despliegue:**
+  * Pruebas automatizadas de punta a punta con Playwright.
+  * Compilación exitosa con Astro 5 (`npm run build`).
+  * Sincronización continua en GitHub y despliegue en Vercel.
